@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }: AppProps) {
 
   //@ts-ignore
   return (
-    <main className="h-full  min-h-screen">
+    <main className="h-full min-h-screen">
       <AWSCatalogContextProvider>
         <Head>
           <title>{title}</title>
@@ -55,7 +55,9 @@ export default function App({ Component, pageProps }: AppProps) {
           <meta name="author" content="David Boyne" />
         </Head>
         <Navigation />
-        <Component {...pageProps} />
+        <div>
+          <Component {...pageProps} />
+        </div>
         <Footer />
       </AWSCatalogContextProvider>
     </main>

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Lambda Resources
+# Adding Lambda resources
 
 CloudCatalog CLI allows you to import Lambda resources directly into your Catalog using the ARN of the Lambda function.
 
