@@ -71,7 +71,7 @@ export const installTemplate = async ({
   /**
    * Default dependencies.
    */
-  const dependencies = ["@cloudcatalog/core-test"];
+  const dependencies = ["@cloudcatalog/core"];
   const devDependencies = [
     "typescript",
     "@types/react",
