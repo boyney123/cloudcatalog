@@ -106,20 +106,10 @@ export default function Example() {
   return (
     <div className="bg-white">
       <div className="relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 ">
-        <div className="mx-auto max-w-7xl pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-20 lg:pb-14 ">
+        <div className="mx-auto max-w-7xl md:pb-24 pt-10 sm:pb-32 lg:grid lg:grid-cols-2 lg:gap-x-8 lg:px-8 lg:pt-20 lg:pb-14 ">
           <div className="px-6 lg:px-0 lg:pt-4">
             <div className="mx-auto max-w-2xl">
               <div className="max-w-lg">
-                {/* <img className="h-11" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="Your Company" /> */}
-                {/* <div className="mt-24 sm:mt-32 lg:mt-16">
-                  <a href="#" className="inline-flex space-x-6">
-                    <span className="rounded-full bg-indigo-600/10 px-3 py-1 text-sm font-semibold leading-6 text-indigo-600 ring-1 ring-inset ring-indigo-600/10">What's new</span>
-                    <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                      <span>Just shipped v0.1.0</span>
-                      <ChevronRightIcon className="h-5 w-5 text-gray-400" aria-hidden="true" />
-                    </span>
-                  </a>
-                </div> */}
                 <h1 className="mt-10 text-4xl font-extrabold tracking-tight text-gray-900 sm:text-6xl">
                   Documentation tool for{" "}
                   <span className="text-orange-500">AWS Architectures</span>
@@ -137,13 +127,13 @@ export default function Example() {
                 <div className="mt-6 flex items-center gap-x-6">
                   <a
                     href="/docs/overview/getting-started/installation"
-                    className="rounded-md bg-orange-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
+                    className="rounded-md bg-orange-600 px-5 py-4 text-md font-semibold text-white shadow-sm hover:bg-orange-500 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600"
                   >
                     Start documenting &rarr;
                   </a>
                   <a
                     href="/docs/overview/intro"
-                    className="text-sm font-semibold leading-6 text-gray-900"
+                    className="text-md font-semibold leading-6 text-gray-900"
                   >
                     Learn more <span aria-hidden="true">→</span>
                   </a>
@@ -151,7 +141,7 @@ export default function Example() {
               </div>
             </div>
           </div>
-          <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen">
+          <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen ">
             <div
               className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
               aria-hidden="true"
@@ -200,7 +190,7 @@ export default function Example() {
         <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
       </div>
 
-      <div className="bg-gray-100 py-24 ">
+      <div className="bg-gray-100 py-8 md:py-24 px-6 lg:px-0  ">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="text-base font-semibold leading-7 text-orange-600">
@@ -248,7 +238,7 @@ export default function Example() {
           </dl>
         </div>
       </div>
-      <div className="overflow-hidden bg-white py-24">
+      <div className="overflow-hidden bg-white py-8 md:py-24">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
             <div className="lg:ml-auto lg:pl-4 lg:pt-4">
@@ -286,7 +276,7 @@ export default function Example() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden bg-gray-100 py-24 ">
+      <div className="overflow-hidden bg-gray-100 py-8 pb-24 md:py-24 ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start">
             <div className="lg:pr-4 lg:pt-4">
@@ -323,8 +313,8 @@ export default function Example() {
         </div>
       </div>
 
-      <div className="bg-white  sm:pb-24 xl:pb-32">
-        <div className="bg-gray-900 xl:pb-0">
+      <div className="bg-white   sm:pb-24">
+        <div className="bg-gray-900 pb-10 xl:pb-0">
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-x-8 gap-y-10 px-6 sm:gap-y-8 lg:px-8 xl:flex-row xl:items-stretch">
             <div className="-mt-8 w-full max-w-2xl xl:-mb-8 xl:w-96 xl:flex-none">
               <div className="relative aspect-[2/1] h-full md:-mx-8 xl:mx-0 xl:aspect-auto">
@@ -375,7 +365,7 @@ export default function Example() {
           </div>
         </div>
         <div className="bg-white">
-          <div className="mx-auto max-w-7xl px-6 pt-24 sm:pt-32 lg:flex lg:items-center lg:justify-between lg:px-8">
+          <div className="mx-auto max-w-7xl px-6 py-10 md:pt-24 md:pb-0  lg:flex lg:items-center lg:justify-between lg:px-8">
             <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Ready to start using{" "}
               <span className="text-orange-500 font-bold">CloudCatalog?</span>
