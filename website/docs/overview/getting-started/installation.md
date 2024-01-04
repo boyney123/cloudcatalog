@@ -16,13 +16,13 @@ Getting up and running with EventCatalog should take a few minutes (hopefully!).
 The easiest way to install CloudCatalog is to use the command line tool that helps you scaffold a skeleton CloudCatalog website. You can run this command anywhere in a new empty repository or within an existing repository, it will create a new directory containing the scaffolded files.
 
 ```bash
-npx @cloudcatalog/create-cloudcatalog@latest [name]
+npx @cloudcatalog/create-catalog@latest [name]
 ```
 
 Example:
 
 ```bash
-npx @cloudcatalog/create-cloudcatalog@latest my-cloudcatalog
+npx @cloudcatalog/create-catalog@latest my-cloudcatalog
 ```
 
 ## Project structure {#project-structure}

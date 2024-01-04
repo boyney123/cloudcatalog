@@ -77,7 +77,7 @@ You should be able to get setup within minutes if you head over to our documenta
 Or run this command to build a new catalog
 
 ```
-npx @cloudcatalog/create-cloudcatalog@latest my-cloudcatalog
+npx @cloudcatalog/create-catalog@latest my-cloudcatalog
 ```
 
 # Demo
