@@ -81,9 +81,13 @@ export class ResourceBase implements Resource {
     const file = `---\n${frontmatter}---\n\n${markdown}`;
 
     console.log(
-      chalk.green(
-        `New resource for ${this.service} added to your catalog (${this.fileName}.md)`,
-      ),
+      chalk.green(`
+
+        ⭐️ New resource added for ${this.service} added to your catalog (${this.fileName}.md)
+
+        ➡️ View your new resource: https://localhost:3000/resources/${this.service}/${this.fileName}
+        
+        `),
     );
     fs.outputFileSync(pathToFile, file);
   }
