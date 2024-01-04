@@ -52,5 +52,3 @@ You should now see your new service!
 <!-- ![UserSignedUp Example](/img/guides/events/UserSignedUpExample.png) -->
 
 **Well done. You created your first service** 🎉.
-
-

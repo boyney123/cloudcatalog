@@ -43,7 +43,6 @@ name: Epic Team
 ### Empowering Transactions with Cutting-Edge Technology
 
 This is an epic team, we can add any markdown here we want!
-
 ```
 
 Once done, run the CloudCatalog and navigate to your new event [localhost:3000/teams/epic-team](http://localhost:3000/teams/epic-team)
@@ -51,4 +50,3 @@ Once done, run the CloudCatalog and navigate to your new event [localhost:3000/t
 You should now see your new team!
 
 **Well done. You created your first team** 🎉.
-

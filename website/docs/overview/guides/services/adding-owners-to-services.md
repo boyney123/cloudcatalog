@@ -28,11 +28,8 @@ owners:
 ### What is this service?
 
 The Payment Service is a sophisticated cloud-based architecture, primarily composed of a suite of AWS Lambda functions, each expertly designed to handle specific aspects of the payment processing lifecycle. This modular approach ensures high scalability, reliability, and efficiency, making it ideal for businesses seeking to streamline their payment operations. The service covers a broad range of functionalities, from initiating and processing transactions to handling confirmations and sending payment-related notifications.
-
 ```
 
 CloudCatalog will render the owners to the service page when they are configured. Users can then explore users or teams directly from the resource page.
 
 ![Owners Example](./img/owners.png)
-
-

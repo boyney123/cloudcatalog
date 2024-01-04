@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Introduction
 
-**Users** can be added to your CloudCatalog. This gives you the ability to document your team members, assign them to teams, and also assign them to services and resources. 
+**Users** can be added to your CloudCatalog. This gives you the ability to document your team members, assign them to teams, and also assign them to services and resources.
 
 ### What do users look like in CloudCatalog?
 

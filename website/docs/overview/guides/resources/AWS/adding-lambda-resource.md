@@ -16,13 +16,17 @@ Run the CloudCatalog CLI within your catalog directory.
 
 1. Navigate to your Catalog in your terminal
 2. Import the lambda resource into your catalog by running the following command:
+
 ```sh
 npx @cloudcatalog/cli import-resource {arn}
 ```
+
 3. Start your CloudCatalog
+
 ```sh
 npm run dev
 ```
+
 4. Navigate to the resources (/resources) or overview page to see your Lambda Function.
 
 ## Adding custom markdown to your Lambda resource
@@ -54,15 +58,14 @@ Something cool.
 
 ```
 
-The fields `AWS` and `catalog` are populated by CloudCatalog. You can specify custom fields in your resource. 
+The fields `AWS` and `catalog` are populated by CloudCatalog. You can specify custom fields in your resource.
 To learn more look read the [frontmatter documentation for resources](/docs/api/resource-front-matter).
-
 
 ## Updating Lambda Resources
 
-Overtime you will want to update the information pulled from AWS in your Catalog. 
+Overtime you will want to update the information pulled from AWS in your Catalog.
 
-You can do this by rerunning `import-resource` command. This will keep your markdown properties and override the CloudCatalog owned properties. 
+You can do this by rerunning `import-resource` command. This will keep your markdown properties and override the CloudCatalog owned properties.
 
 :::info
 A new feature is being built that will allow you to pull latest resources on build, meaning you don't have to do this manual feature.

@@ -18,4 +18,3 @@ This will output two directories
 - `.next` - If you wish to deploy to NextJS (NextJS outputs this by default, recommended to use the `out` directory)
 
 Using these directories you should be able to host the Catalog on any platform you want.
-

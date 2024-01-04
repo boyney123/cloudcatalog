@@ -42,7 +42,7 @@ The Lambda function is designed to streamline the process of sending payment ema
 ```
 
 :::warning[AWS and catalog fields are owned by CloudCatalog]
-The fields `AWS` and `catalog` are fields owned by CloudCatalog. 
+The fields `AWS` and `catalog` are fields owned by CloudCatalog.
 
 When you import or reimport resources into your Catalog, the platform will update these fields. It's highly recommended to leave the fields as they are.
 :::
@@ -55,7 +55,7 @@ Friendly name for your resource. If no name is provided CloudCatalog will render
 
 ```mdx title="Example"
 ---
-  name: Payment Function
+name: Payment Function
 ---
 ```
 
@@ -65,7 +65,7 @@ Short summary of your resource.
 
 ```mdx title="Example"
 ---
-  description: Function that handles payments.
+description: Function that handles payments.
 ---
 ```
 
@@ -75,10 +75,10 @@ An array of users or teams ids that own the resource.
 
 ```mdx title="Example"
 ---
-  owners:
-    - dboyne
-    - mSmith
-    - my-awesome-team
+owners:
+  - dboyne
+  - mSmith
+  - my-awesome-team
 ---
 ```
 
@@ -87,11 +87,11 @@ An array of users or teams ids that own the resource.
 The service id of the service that the resource belongs too.
 
 :::info[Services]
- Every resource can belong to a service. You will need to [create a service](/docs/overview/guides/services/adding-services) before you can add the resource to the service.
+Every resource can belong to a service. You will need to [create a service](/docs/overview/guides/services/adding-services) before you can add the resource to the service.
 :::
 
 ```mdx title="Example"
 ---
-  service: payment-service
+service: payment-service
 ---
 ```

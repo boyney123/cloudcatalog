@@ -18,7 +18,7 @@ Title for your website.
 
 ```js title="cloudcatalog.config.js"
 module.exports = {
-  title: 'CloudCatalog',
+  title: "CloudCatalog",
 };
 ```
 
@@ -30,7 +30,7 @@ Your organization name.
 
 ```js title="cloudcatalog.config.js"
 module.exports = {
-  organizationName: 'Your Company',
+  organizationName: "Your Company",
 };
 ```
 
@@ -44,7 +44,7 @@ URL used when people want to edit the documentation. For example your GitHub rep
 
 ```js title="cloudcatalog.config.js"
 module.exports = {
-  editUrl: 'https://github.com/boyney123/cloudcatalog-demo/edit/master',
+  editUrl: "https://github.com/boyney123/cloudcatalog-demo/edit/master",
 };
 ```
 
@@ -54,7 +54,7 @@ Tagline that is shown on your homepage.
 
 ```js title="cloudcatalog.config.js"
 module.exports = {
-  tagline: 'Discover, Explore and Document your AWS Architecture',
+  tagline: "Discover, Explore and Document your AWS Architecture",
 };
 ```
 
@@ -69,8 +69,8 @@ _EventCatalog will look inside the public directory, no need to put this into yo
 ```js title="cloudcatalog.config.js"
 module.exports = {
   logo: {
-    src: '/logo.png',
-    alt: 'My Company Logo',
+    src: "/logo.png",
+    alt: "My Company Logo",
   },
 };
 ```
@@ -83,16 +83,16 @@ Add user information here. You can reference these inside your services, resourc
 module.exports = {
   users: [
     {
-      id: 'dboyne',
-      name: 'David Boyne',
-      avatarUrl: 'https://pbs.twimg.com/profile_images/1262283153563140096/DYRDqKg6_400x400.png',
-      role: 'Developer',
-      summary: 'Currently building tools for Event Architectures.',
+      id: "dboyne",
+      name: "David Boyne",
+      avatarUrl:
+        "https://pbs.twimg.com/profile_images/1262283153563140096/DYRDqKg6_400x400.png",
+      role: "Developer",
+      summary: "Currently building tools for Event Architectures.",
     },
   ],
 };
 ```
-
 
 ### `basePath` {#basepath}
 
@@ -100,7 +100,7 @@ Set the `basePath` in order to be able to deploy the eventcatalog under a sub-pa
 
 ```js title="cloudcatalog.config.js"
 module.exports = {
-  basePath: '/my-catalog',
+  basePath: "/my-catalog",
 };
 ```
 
@@ -127,10 +127,12 @@ Manage the Open Graph tags that are used for social media sharing.
 ```js title="cloudcatalog.config.js"
 module.exports = {
   openGraph: {
-    ogTitle: 'EventCatalog | Discover, Explore and Document your Event Driven Architectures.',
-    ogDescription: 'An open source tool powered by markdown to document your Event Driven Architecture.',
-    ogUrl: 'https://eventcatalog.dev/',
-    ogImage: 'https://eventcatalog.dev/img/opengraph.png',
+    ogTitle:
+      "EventCatalog | Discover, Explore and Document your Event Driven Architectures.",
+    ogDescription:
+      "An open source tool powered by markdown to document your Event Driven Architecture.",
+    ogUrl: "https://eventcatalog.dev/",
+    ogImage: "https://eventcatalog.dev/img/opengraph.png",
   },
 };
 ```

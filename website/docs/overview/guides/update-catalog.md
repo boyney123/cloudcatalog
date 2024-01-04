@@ -25,4 +25,3 @@ Once you upgrade the version number, run `npm install` or `yarn` to install the 
 :::tip
 If you don't see the changes you expect, try removing the `.cloudcatalog-core` folder, `node_modules` folder and install fresh again.
 :::
-

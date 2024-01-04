@@ -62,9 +62,9 @@ As you can see we added the `service: payment-service` onto the frontmatter. Thi
 When you create a service, you specify it's **id** property. Use this **id** field to map to a service from a resource.
 
 :::tip
-Many more resources will come to CloudCatalog. 
+Many more resources will come to CloudCatalog.
 
-Services give you the ability to group resources into services to help you document them in groups for your teams. Each service has its own markdown file and each resource can be documented. 
+Services give you the ability to group resources into services to help you document them in groups for your teams. Each service has its own markdown file and each resource can be documented.
 :::
 
 To learn more about the Service API you can read the [api docs](/docs/api/service-front-matter)

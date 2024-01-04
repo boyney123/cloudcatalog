@@ -26,7 +26,7 @@ owners:
 
 ### What is this service?
 
-The Payment Service is a sophisticated cloud-based architecture, primarily composed of a suite of AWS Lambda functions, each expertly designed to handle specific aspects of the payment processing lifecycle. 
+The Payment Service is a sophisticated cloud-based architecture, primarily composed of a suite of AWS Lambda functions, each expertly designed to handle specific aspects of the payment processing lifecycle.
 
 This modular approach ensures high scalability, reliability, and efficiency, making it ideal for businesses seeking to streamline their payment operations. The service covers a broad range of functionalities, from initiating and processing transactions to handling confirmations and sending payment-related notifications.
 
@@ -36,7 +36,7 @@ This modular approach ensures high scalability, reliability, and efficiency, mak
 
 ### `id` {#id}
 
-A unique id of your service. 
+A unique id of your service.
 
 :::info
 
@@ -46,7 +46,7 @@ You will use this id in your resources when you link resources to services. [Rea
 
 ```mdx title="Example"
 ---
-  id: payment-service
+id: payment-service
 ---
 ```
 
@@ -56,7 +56,7 @@ A name for your service. This name will be rendered in the UI.
 
 ```mdx title="Example"
 ---
-  name: Payment Service
+name: Payment Service
 ---
 ```
 
@@ -72,7 +72,7 @@ Keep it short, remember you can add as much detail as you want in the markdown s
 
 ```mdx title="Example"
 ---
-  description: The Payment Service, leveraging AWS Lambda functions
+description: The Payment Service, leveraging AWS Lambda functions
 ---
 ```
 
@@ -82,9 +82,9 @@ An array of users or teams ids that own the resource.
 
 ```mdx title="Example"
 ---
-  owners:
-    - dboyne
-    - mSmith
-    - my-awesome-team
+owners:
+  - dboyne
+  - mSmith
+  - my-awesome-team
 ---
 ```

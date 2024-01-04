@@ -50,5 +50,3 @@ The Lambda function is designed to streamline the process of sending payment ema
 CloudCatalog will render the owners to the resource page when they are configured. Users can then explore users or teams directly from the resource page.
 
 ![Owners Example](./img/owners.png)
-
-

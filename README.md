@@ -57,7 +57,6 @@ We can do so much more to document our Architectures.
 
 CloudCatalog is Open Source and hopefully it can add value to your teams.
 
-
 # This solution
 
 <!-- <img alt="header" src="./images/architecture-2.png" /> -->

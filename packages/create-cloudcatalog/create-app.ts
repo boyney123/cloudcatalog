@@ -1,9 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import chalk from "chalk";
 import path from "path";
-import {
-  RepoInfo,
-} from "./helpers/examples";
+import { RepoInfo } from "./helpers/examples";
 import { makeDir } from "./helpers/make-dir";
 import { tryGitInit } from "./helpers/git";
 
@@ -12,11 +10,7 @@ import { getOnline } from "./helpers/is-online";
 import { isWriteable } from "./helpers/is-writeable";
 import type { PackageManager } from "./helpers/get-pkg-manager";
 
-import {
-  installTemplate,
-  TemplateMode,
-  TemplateType,
-} from "./templates";
+import { installTemplate, TemplateMode, TemplateType } from "./templates";
 
 export class DownloadError extends Error {}
 

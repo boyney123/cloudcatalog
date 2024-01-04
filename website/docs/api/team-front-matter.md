@@ -35,7 +35,7 @@ To provide an unparalleled payment experience that combines speed, security, and
 
 ### `id` {#id}
 
-A unique id of your team. 
+A unique id of your team.
 
 :::info
 
@@ -45,7 +45,7 @@ You will use this id in your owners fields for [resources](/docs/api/resource-fr
 
 ```mdx title="Example"
 ---
-  id: user-team
+id: user-team
 ---
 ```
 
@@ -55,7 +55,7 @@ A name for your team. This name will be rendered in the UI.
 
 ```mdx title="Example"
 ---
-  name: User Team
+name: User Team
 ---
 ```
 
@@ -71,6 +71,6 @@ Keep it short, remember you can add as much detail as you want in the markdown s
 
 ```mdx title="Example"
 ---
-  summary: The Payment Service, leveraging AWS Lambda functions
+summary: The Payment Service, leveraging AWS Lambda functions
 ---
 ```

@@ -1,8 +1,11 @@
 import { useCatalogConfig } from "@/hooks/CloudCatalog";
 import Link from "next/link";
 
-import { LifebuoyIcon, NewspaperIcon, PhoneIcon } from '@heroicons/react/20/solid'
-
+import {
+  LifebuoyIcon,
+  NewspaperIcon,
+  PhoneIcon,
+} from "@heroicons/react/20/solid";
 
 export default function Example() {
   const { title, tagline } = useCatalogConfig();

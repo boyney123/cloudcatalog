@@ -4,7 +4,6 @@ sidebar_position: 1
 
 # CLI
 
-
 CloudCatalog provides a set of scripts to help you generate, serve, and deploy your website.
 
 Once your catalog is bootstrapped, the source will contain the CloudCatalog scripts that you can invoke with your package manager:
@@ -33,6 +32,7 @@ Starts the built CloudCatalog (post-build phase)
 Compiles your site for production.
 
 Starts the built CloudCatalog (post-build phase)
+
 ### `cloudcatalog dev` {#cloudcatalog-dev-sitedir}
 
 Runs your catalog in dev mode

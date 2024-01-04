@@ -56,26 +56,26 @@ my-cloudcatalog
 
 ### Project structure rundown {#project-structure-rundown}
 
-- `/data/resources` 
-    - Contains the resource Markdown files within your Architecture. 
-    - More details can be found in the [resources guide](/docs/overview/guides/resources/introduction)
-- `/data/services/` 
-    - Contains services. Each resource can be tagged with a service.
-    - More details can be found in the [services guide](/docs/overview/guides/services/introduction)
-- `/data/teams/` 
-    - Contains teams. These are teams within your organisation.
-    - Teams can be assigned to resources or services.
-    - Users are assigned to teams.
-    - More details can be found in the [teams guide](/docs/overview/guides/teams/introduction)
-- `/public/` 
-    - Static directory. Any contents inside here will be copied into the root of the final `build` directory. 
-    - You can add your own logo here and favicon. 
-    - More details can be found in the [customise guide](/docs/overview/guides/customize)
-- `/cloudcatalog.config.js` 
-    - A config file containing the site configuration.
-    - Read the [API docs](/docs/api/cloudcatalog.config.js)
-- `/package.json` 
-    - File required for your application to work.
+- `/data/resources`
+  - Contains the resource Markdown files within your Architecture.
+  - More details can be found in the [resources guide](/docs/overview/guides/resources/introduction)
+- `/data/services/`
+  - Contains services. Each resource can be tagged with a service.
+  - More details can be found in the [services guide](/docs/overview/guides/services/introduction)
+- `/data/teams/`
+  - Contains teams. These are teams within your organisation.
+  - Teams can be assigned to resources or services.
+  - Users are assigned to teams.
+  - More details can be found in the [teams guide](/docs/overview/guides/teams/introduction)
+- `/public/`
+  - Static directory. Any contents inside here will be copied into the root of the final `build` directory.
+  - You can add your own logo here and favicon.
+  - More details can be found in the [customise guide](/docs/overview/guides/customize)
+- `/cloudcatalog.config.js`
+  - A config file containing the site configuration.
+  - Read the [API docs](/docs/api/cloudcatalog.config.js)
+- `/package.json`
+  - File required for your application to work.
 
 ## Running the development server {#running-the-development-server}
 
