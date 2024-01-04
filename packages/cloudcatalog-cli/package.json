@@ -1,0 +1,38 @@
+{
+    "name": "@cloudcatalog/cli-test",
+    "version": "0.0.4",
+    "main": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "tsup src/index.ts --format cjs --dts",
+        "build:dev": "tsup src/index.ts --format cjs --dts --watch",
+        "dev": "npm run build --watch",
+        "test": "jest"
+    },
+    "bin": {
+        "awscatalog-cli": "./dist/index.js"
+    },
+    "dependencies": {
+        "@aws-sdk/client-lambda": "^3.236.0",
+        "@aws-sdk/util-arn-parser": "^3.208.0",
+        "chalk": "4.1.2",
+        "fs-extra": "^11.1.0",
+        "gray-matter": "^4.0.3",
+        "js-yaml": "^4.1.0",
+        "json2md": "^2.0.0",
+        "prompts": "^2.4.2",
+        "typescript": "latest",
+        "yamljs": "^0.3.0",
+        "yargs": "^17.6.2"
+    },
+    "devDependencies": {
+        "@types/fs-extra": "^11.0.4",
+        "@types/jest": "^29.5.11",
+        "@types/yargs": "^17.0.17",
+        "jest": "^29.7.0",
+        "ts-jest": "^29.1.1"
+    }
+}

@@ -1,0 +1,27 @@
+name: Lint
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  lint:
+    name: Lint
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          cache: 'npm'
+          node-version: '16.14.0'
+      - name: Installation
+        run: npm install
+      # - name: Check immutable package-lock.json
+      #   run: git diff --exit-code
+      - name: Lint
+        run: npm run lint:ci
+      - name: Prettier Code
+        run: npm run format:diff

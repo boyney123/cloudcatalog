@@ -1,0 +1,26 @@
+# Make sure the EventCatalog can build OK
+name: Verify Build
+
+on:
+  pull_request:
+    branches:
+      - master
+      - main
+
+jobs:
+  build:
+    name: Verify Build
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v2
+        with:
+          cache: npm
+          node-version: '16'
+      - name: Installation
+        run: npm i
+      # - name: Check immutable lock
+      #   run: git diff --exit-code
+      - name: Build
+        run: npm run verify-build:catalog

@@ -1,0 +1,40 @@
+{
+  "name": "cloudcatalog",
+  "version": "0.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "lint:ci": "turbo run lint -- --quiet --report-unused-disable-directives",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format:diff": "prettier --list-different \"**/*.{js,jsx,ts,tsx,json}\"",
+    "publish-packages": "turbo run build lint && changeset version && changeset publish",
+    "version": "changeset version",
+    "publish": "changeset publish",
+    "start:website": "cd website && npm run start",
+    "start:catalog": "node scripts/start-catalog-locally.js",
+    "verify-build:catalog": "node scripts/verify-build-catalog-locally.js"
+  },
+  "devDependencies": {
+    "eslint-config-custom": "*",
+    "prettier": "latest",
+    "tsup": "^6.5.0",
+    "turbo": "latest"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "packageManager": "npm@9.2.0",
+  "dependencies": {
+    "@changesets/cli": "^2.26.0"
+  },
+  "overrides": {
+    "@mdx-js/mdx": "2.1.5",
+    "@mdx-js/react": "2.1.5"
+  }
+}
