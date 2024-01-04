@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
-          node-version: '16.14.0'
+          node-version: '18.17.0'
       - name: Installation
         run: npm install
       # - name: Check immutable package-lock.json
