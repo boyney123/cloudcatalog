@@ -22,7 +22,7 @@ const copyCoreApplicationCodeIntoUsersProjectDir = () => {
   // remove any files we don't care about
   exclusions.map((path) => {
     try {
-      fs.lstatSync(path).isDirectory() ? fs.rmSync(path, { recursive: true, force: true }) : fs.unlinkSync(path);
+      fs.lstatSync(path).isDirectory() ? fs.rmdirSync(path, { recursive: true, force: true }) : fs.unlinkSync(path);
     } catch (error) {}
   });
 

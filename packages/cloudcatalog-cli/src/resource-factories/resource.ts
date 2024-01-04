@@ -46,7 +46,7 @@ export class ResourceBase implements Resource {
       "data",
       "resources",
       this.service,
-      `${this.fileName}.mdx`,
+      `${this.fileName}.md`,
     );
 
     if (!fs.existsSync(path.join(PROJECT_DIR, catalogFileName))) {
@@ -55,7 +55,12 @@ export class ResourceBase implements Resource {
       );
     }
 
+    // Update the updatedAt Field
+    // @ts-ignore
+    this.data?.catalog?.updatedAt = new Date().toISOString();
+
     const frontmatter = yaml.dump(this.data);
+
     let markdown = this.defaultMarkdown;
 
     // Does the file already exist?
@@ -74,7 +79,7 @@ export class ResourceBase implements Resource {
 
     console.log(
       chalk.green(
-        `New resource for ${this.service} added to your catalog (${this.fileName}.mdx)`,
+        `New resource for ${this.service} added to your catalog (${this.fileName}.md)`,
       ),
     );
     fs.outputFileSync(pathToFile, file);

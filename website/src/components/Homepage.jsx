@@ -131,8 +131,8 @@ export default function Example() {
                     <div className="w-screen overflow-hidden rounded-tl-xl bg-gray-900">
                       <div className="flex bg-gray-800/40 ring-1 ring-white/5">
                         <div className="-mb-px flex text-sm font-medium leading-6 text-gray-400">
-                          <div className="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">MyLambdaFunction.mdx</div>
-                          <div className="border-r border-gray-600/10 px-4 py-2">EventBridgeBus.mdx</div>
+                          <div className="border-b border-r border-b-white/20 border-r-white/10 bg-white/5 px-4 py-2 text-white">MyLambdaFunction.md</div>
+                          <div className="border-r border-gray-600/10 px-4 py-2">EventBridgeBus.md</div>
                         </div>
                       </div>
                       <div className="-mt-1 text-xs">

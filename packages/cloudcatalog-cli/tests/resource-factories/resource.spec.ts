@@ -39,7 +39,7 @@ describe("resource", () => {
     lambdaResource = new LambdaResource(mockArn);
     sendMock.mockClear();
     if (fs.existsSync(path.join(pathToExampleCatalog, "data", "resources"))) {
-      fs.rmSync(path.join(pathToExampleCatalog, "data", "resources"), {
+      fs.rmdirSync(path.join(pathToExampleCatalog, "data", "resources"), {
         recursive: true,
       });
     }
@@ -84,7 +84,7 @@ describe("resource", () => {
             "data",
             "resources",
             "lambda",
-            `${lambdaResource.data.AWS.FunctionName}.mdx`,
+            `${lambdaResource.data.AWS.FunctionName}.md`,
           ),
         ),
       ).toBeTruthy();
@@ -95,7 +95,7 @@ describe("resource", () => {
           "data",
           "resources",
           "lambda",
-          `${lambdaResource.data.AWS.FunctionName}.mdx`,
+          `${lambdaResource.data.AWS.FunctionName}.md`,
         ),
         { encoding: "utf-8" },
       );
@@ -110,6 +110,7 @@ AWS:
   Account: account-id
   Service: lambda
 catalog:
+  updatedAt: '2020-01-01T00:00:00.000Z'
   parent: lambda
   path: function-name
 ---
@@ -125,7 +126,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum in ligula et
       // Verify the file is in the project....
     });
 
-    it.only("only the AWS information in the resource is set when a resource is already defined in catalog", async () => {
+    it("only the AWS information in the resource is set when a resource is already defined in catalog", async () => {
       // Add an example file into the project first.
 
       const exampleFile = `---
@@ -150,7 +151,7 @@ My Awesome Custom content`;
           "data",
           "resources",
           "lambda",
-          "function-name.mdx",
+          "function-name.md",
         ),
         exampleFile,
       );
@@ -178,7 +179,7 @@ My Awesome Custom content`;
             "data",
             "resources",
             "lambda",
-            `${lambdaResource.data.AWS.FunctionName}.mdx`,
+            `${lambdaResource.data.AWS.FunctionName}.md`,
           ),
         ),
       ).toBeTruthy();
@@ -189,7 +190,7 @@ My Awesome Custom content`;
           "data",
           "resources",
           "lambda",
-          `${lambdaResource.data.AWS.FunctionName}.mdx`,
+          `${lambdaResource.data.AWS.FunctionName}.md`,
         ),
         { encoding: "utf-8" },
       );

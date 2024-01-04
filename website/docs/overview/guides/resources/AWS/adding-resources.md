@@ -53,7 +53,7 @@ npx @cloudcatalog/cli import-resource {arn}
 
 For this example let's say the function name was `my-first-function`, once you import the resource the markdown file will be generated.
 
-```mdx title="Example: /data/resources/lambda/my-first-function.mdx"
+```mdx title="Example: /data/resources/lambda/my-first-function.md"
 ---
 AWS:
   Arn: >-
