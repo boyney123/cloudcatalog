@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.repository == 'boyney123/cloudcatalog-test'
+    if: github.repository == 'boyney123/cloudcatalog'
     steps:
       - uses: actions/checkout@v3
         with:
