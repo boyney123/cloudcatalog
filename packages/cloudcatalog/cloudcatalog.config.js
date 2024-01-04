@@ -21,7 +21,7 @@ module.exports = {
       avatarUrl: 'https://pbs.twimg.com/profile_images/1262283153563140096/DYRDqKg6_400x400.png',
       role: 'Developer',
       summary: 'Currently building tools for Event Architectures.',
-      teams: ['payment-team']
+      teams: ['payment-team'],
     },
     {
       id: 'mSmith',
@@ -29,7 +29,7 @@ module.exports = {
       avatarUrl: 'https://randomuser.me/api/portraits/lego/3.jpg',
       role: 'Developer',
       summary: 'About Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat.',
-      teams: ['user-team']
+      teams: ['user-team'],
     },
-  ]
-}
+  ],
+};
