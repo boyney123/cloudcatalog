@@ -8,6 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions: write-all
     if: github.repository == 'boyney123/cloudcatalog'
     steps:
       - uses: actions/checkout@v3
