@@ -52,11 +52,6 @@ export class LambdaResource extends ResourceBase {
         Account: this.accountId,
         Service: "lambda",
       },
-      catalog: {
-        updatedAt: new Date().toISOString(),
-        parent: "lambda",
-        path: response.Configuration?.FunctionName,
-      },
     };
 
     this.fileName = response.Configuration?.FunctionName;

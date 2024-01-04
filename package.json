@@ -11,7 +11,7 @@
     "lint": "turbo run lint",
     "lint:ci": "turbo run lint -- --quiet",
     "test": "turbo run test",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json}\"",
     "format:diff": "prettier --list-different \"**/*.{js,jsx,ts,tsx,json}\"",
     "publish-packages": "turbo run build lint && changeset version && changeset publish",
     "version": "changeset version",

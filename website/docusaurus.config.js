@@ -4,71 +4,68 @@
 // There are various equivalent ways to declare your Docusaurus config.
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
-import {themes as prismThemes} from 'prism-react-renderer';
+import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'CloudCatalog',
-  tagline: 'CloudCatalog | Discover, Explore and Document your AWS Architecture',
-  favicon: 'img/favicon.ico',
+  title: "CloudCatalog",
+  tagline:
+    "CloudCatalog | Discover, Explore and Document your AWS Architecture",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
-  url: 'https://cloudcatalog.dev',
+  url: "https://cloudcatalog.dev",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'cloudcatalog', // Usually your GitHub org/user name.
-  projectName: 'cloudcatalog', // Usually your repo name.
+  organizationName: "cloudcatalog", // Usually your GitHub org/user name.
+  projectName: "cloudcatalog", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: './sidebars.js',
+          sidebarPath: "./sidebars.js",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/boyney123/cloudcatalog/website',
+          editUrl: "https://github.com/boyney123/cloudcatalog/website",
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/boyney123/cloudcatalog/website',
+          editUrl: "https://github.com/boyney123/cloudcatalog/website",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       }),
     ],
   ],
 
-
-
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/opengraph.png',
+      image: "img/opengraph.png",
       colorMode: {
-          defaultMode: 'light'
+        defaultMode: "light",
       },
       announcementBar: {
         content:
@@ -80,86 +77,86 @@ const config = {
         },
       },
       navbar: {
-        title: 'CloudCatalog',
+        title: "CloudCatalog",
         logo: {
-          alt: 'My Site Logo',
-          src: 'https://www.eventcatalog.dev/img/logo.svg',
+          alt: "My Site Logo",
+          src: "https://www.eventcatalog.dev/img/logo.svg",
         },
         items: [
           {
-            type: 'docSidebar',
-            sidebarId: 'tutorialSidebar',
-            position: 'left',
-            label: 'Docs',
+            type: "docSidebar",
+            sidebarId: "tutorialSidebar",
+            position: "left",
+            label: "Docs",
           },
           {
-            type: 'docSidebar',
-            sidebarId: 'api',
-            position: 'left',
-            label: 'API',
+            type: "docSidebar",
+            sidebarId: "api",
+            position: "left",
+            label: "API",
           },
           {
-            href: 'https://serverlessland.com',
-            label: 'Learn Serverless',
-            position: 'left',
+            href: "https://serverlessland.com",
+            label: "Learn Serverless",
+            position: "left",
           },
           {
-            href: 'https://discord.gg/d8Apdbhrkg',
-            label: 'Discord',
-            position: 'left',
+            href: "https://discord.gg/d8Apdbhrkg",
+            label: "Discord",
+            position: "left",
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://app.cloudcatalog.dev/',
-            label: 'Demo',
-            position: 'right',
+            href: "https://app.cloudcatalog.dev/",
+            label: "Demo",
+            position: "right",
           },
           {
-            href: 'https://github.com/boyney123/cloudcatalog',
-            label: 'GitHub',
-            position: 'right',
+            href: "https://github.com/boyney123/cloudcatalog",
+            label: "GitHub",
+            position: "right",
           },
         ],
       },
       footer: {
-        style: 'dark',
+        style: "dark",
         links: [
           {
-            title: 'Docs',
+            title: "Docs",
             items: [
               {
-                label: 'Introduction',
-                to: '/docs/overview/intro',
+                label: "Introduction",
+                to: "/docs/overview/intro",
               },
               {
-                label: 'Install',
-                to: '/docs/overview/getting-started/installation',
+                label: "Install",
+                to: "/docs/overview/getting-started/installation",
               },
               {
-                label: 'Guides',
-                to: '/docs/category/guides',
+                label: "Guides",
+                to: "/docs/category/guides",
               },
             ],
           },
           {
-            title: 'Community',
+            title: "Community",
             items: [
               {
-                label: 'Discord',
-                href: 'https://discord.com/invite/d8Apdbhrkg',
+                label: "Discord",
+                href: "https://discord.com/invite/d8Apdbhrkg",
               },
               {
-                label: 'Twitter',
-                href: 'https://twitter.com/boyney123',
+                label: "Twitter",
+                href: "https://twitter.com/boyney123",
               },
             ],
           },
           {
-            title: 'More',
+            title: "More",
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/boyney123/cloudcatalog',
+                label: "GitHub",
+                href: "https://github.com/boyney123/cloudcatalog",
               },
             ],
           },
@@ -171,19 +168,19 @@ const config = {
         darkTheme: prismThemes.dracula,
       },
     }),
-    plugins: [
-      async function myPlugin(context, options) {
-        return {
-          name: "docusaurus-tailwindcss",
-          configurePostCss(postcssOptions) {
-            // Appends TailwindCSS and AutoPrefixer.
-            postcssOptions.plugins.push(require("tailwindcss"));
-            postcssOptions.plugins.push(require("autoprefixer"));
-            return postcssOptions;
-          },
-        };
-      },
-    ],
+  plugins: [
+    async function myPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
+  ],
 };
 
 export default config;

@@ -55,11 +55,14 @@ export class ResourceBase implements Resource {
       );
     }
 
-    // Update the updatedAt Field
-    // @ts-ignore
-    this.data?.catalog?.updatedAt = new Date().toISOString();
-
-    const frontmatter = yaml.dump(this.data);
+    const frontmatter = yaml.dump({
+      ...this.data,
+      catalog: {
+        updatedAt: new Date().toISOString(),
+        parent: this.service,
+        path: this.fileName,
+      },
+    });
 
     let markdown = this.defaultMarkdown;
 

@@ -1,5 +1,5 @@
 /** @type {import('next').NextConfig} */
-const config = require('./cloudcatalog.config');
+const config = require("./cloudcatalog.config");
 const nextConfig = {
   basePath: config.basePath,
   trailingSlash: config.trailingSlash,
@@ -7,7 +7,7 @@ const nextConfig = {
     basePath: config.basePath,
   },
   reactStrictMode: true,
-  output: 'export'
-}
+  output: "export",
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

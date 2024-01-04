@@ -60,11 +60,6 @@ describe("Lambda resource", () => {
         Account: "account-id",
         Service: "lambda",
       },
-      catalog: {
-        parent: "lambda",
-        path: "function-name",
-        updatedAt: expect.anything(),
-      },
     });
   });
 });
