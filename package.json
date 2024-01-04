@@ -9,7 +9,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "lint:ci": "turbo run lint -- --quiet --report-unused-disable-directives",
+    "lint:ci": "turbo run lint -- --quiet",
     "test": "turbo run test",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "format:diff": "prettier --list-different \"**/*.{js,jsx,ts,tsx,json}\"",
