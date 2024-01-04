@@ -88,9 +88,23 @@ npm run dev
 
 By default, a browser window will open at http://localhost:3000.
 
-Congratulations! You have just created your first CloudCatalog site!
+🎉 Congratulations! **You have just created your first CloudCatalog site!**
 
-## Build {#build}
+## Adding resources to your Catalog
+
+Using the `@cloudcatalog/cli` you can import AWS resources into your Catalog.
+
+Head over to the [resource guide](/docs/overview/guides/resources/introduction) to get started.
+
+:::info
+CloudCatalog is currrently new and only supports importing Lambda functions at the moment.
+
+We are looking for contributors to help us scale and import many other resources.
+
+Join the [Discord channel](https://discord.com/invite/d8Apdbhrkg) for more information.
+:::
+
+## Building your catalog {#build}
 
 CloudCatalog uses NextJS under the hood. To build the website run the following command:
 
@@ -98,4 +112,6 @@ CloudCatalog uses NextJS under the hood. To build the website run the following 
 npm run build
 ```
 
-This will output your catalog to the `out` directory.
+This will output your catalog to the `out` directory. 
+
+CloudCatalog is a static website that can be hosted anywhere. See [deployment docs](/docs/overview/guides/deployment) for more information.
