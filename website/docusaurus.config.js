@@ -110,7 +110,7 @@ const config = {
           },
           // {to: '/blog', label: 'Blog', position: 'left'},
           {
-            href: 'https://cloudcatalog-demo-app.vercel.app/',
+            href: 'https://app.cloudcatalog.dev/',
             label: 'Demo',
             position: 'right',
           },

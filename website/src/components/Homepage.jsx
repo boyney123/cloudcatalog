@@ -197,7 +197,7 @@ export default function Example() {
                 </p>
                 <div className="mt-8">
                   <a
-                    href="https://cloudcatalog-demo-app.vercel.app/resources/lambda/payment-emails"
+                    href="https://app.cloudcatalog.dev/resources/lambda/payment-emails"
                     class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700"
                   >
                     View example →
@@ -223,7 +223,7 @@ export default function Example() {
                 </p>
                 <div className="mt-8">
                   <a
-                    href="https://cloudcatalog-demo-app.vercel.app/teams/payment-team"
+                    href="https://app.cloudcatalog.dev/teams/payment-team"
                     class="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-orange-600 hover:bg-orange-700"
                   >
                     View example →

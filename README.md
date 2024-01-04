@@ -18,7 +18,7 @@
 
   <h3>Features: Website generator for AWS Architectures, Markdown driven, Document Resources/Services/Owners, and more...</h3>
 
-[Read the Docs](https://cloudcatalog.dev/) | [Edit the Docs](https://github.com/boyney123/cloudcatalog) | [View Demo](https://cloudcatalog-demo-app.vercel.app/)
+[Read the Docs](https://cloudcatalog.dev/) | [Edit the Docs](https://github.com/boyney123/cloudcatalog) | [View Demo](https://app.cloudcatalog.dev/)
 
 </div>
 
@@ -84,7 +84,7 @@ npx @cloudcatalog/create-cloudcatalog@latest my-cloudcatalog
 
 Here is an example of a CloudCatalog hosting a few teams, users and Lambda resources.
 
-[app.cloudcatalog.dev](https://cloudcatalog-demo-app.vercel.app/)
+[app.cloudcatalog.dev](https://app.cloudcatalog.dev/)
 
 You can see the markdown files that generated the website in the GitHub repo under [examples](/examples).
 
