@@ -4,13 +4,12 @@ import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
 
 import { validate } from "@aws-sdk/util-arn-parser";
-
-import { LambdaResource } from "./resource-factories/lambda";
-import { isServiceSupportedByCatalog } from "./utils/cli-helpers";
-
-const buildResource = async (arn: string): Promise<any> => {
-  return new LambdaResource(arn);
-};
+import {
+  getServiceFromArn,
+  isServiceSupportedByCatalog,
+} from "./utils/cli-helpers";
+import resources from "./resources";
+import { writeResourceToCatalog } from "./utils/file-system";
 
 yargs(hideBin(process.argv))
   .command(
@@ -35,11 +34,23 @@ yargs(hideBin(process.argv))
         process.exit(1);
       }
 
-      console.log(chalk.cyan("Importing resource into catalog..."));
+      const service = getServiceFromArn(ARN);
+      const resource = resources[service];
 
-      // const { resource, service } = parse(ARN);
-      const resource = await buildResource(ARN);
-      await resource.importToCatalog();
+      console.log(
+        chalk.cyan(`Importing your ${service} resource into your catalog...`),
+      );
+
+      const data = await resource.getData(ARN);
+      const markdown = await resource.getMarkdown(data);
+      const fileName = await resource.getFileName(data);
+
+      await writeResourceToCatalog({
+        data,
+        markdown,
+        fileName,
+        service,
+      });
 
       return;
     },
