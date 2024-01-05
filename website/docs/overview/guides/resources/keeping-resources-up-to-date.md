@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Keeping resources up to date
+# Updating resources
 
 Resources in your AWS account change all the time depending on what is being deployed and when.
 

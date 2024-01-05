@@ -2,7 +2,7 @@
 sidebar_position: 3
 ---
 
-# Adding owners to resources
+# Adding owners
 
 Resources can be assigned owners. Owners are either [users](/docs/overview/guides/users/introduction) or [teams](/docs/overview/guides/teams/introduction).
 
