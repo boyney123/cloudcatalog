@@ -1,5 +1,11 @@
 # @cloudcatalog/create-catalog
 
+## 0.0.7
+
+### Patch Changes
+
+- [#20](https://github.com/boyney123/cloudcatalog/pull/20) [`7b8b369`](https://github.com/boyney123/cloudcatalog/commit/7b8b3695ef2524265e5a6174a1887a5f03d9bccc) Thanks [@boyney123](https://github.com/boyney123)! - fix: step functions in services
+
 ## 0.0.6
 
 ### Patch Changes
