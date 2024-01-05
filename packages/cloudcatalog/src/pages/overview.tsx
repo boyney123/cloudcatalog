@@ -1,7 +1,7 @@
 import { LambdaResource } from "@/types";
 import Link from "next/link";
 import { getResourceName } from "@/util/catalog-data-frontend";
-import { getLambdaResources, groupResourcesByService } from "@/util/resources";
+import { getAllResources, groupResourcesByService } from "@/util/resources";
 
 interface Props {
   resources: Record<string, LambdaResource[]>;
@@ -137,12 +137,21 @@ export default function Example({ resources, services }: Props) {
 }
 
 export async function getStaticProps({ params }: any) {
-  const lambdaResources = await getLambdaResources();
-  const services = await groupResourcesByService(lambdaResources);
+  const resources = await getAllResources();
+  const services = await groupResourcesByService(resources);
+
+  const lambdaResources = resources.filter(
+    (item) => item.AWS.Service === "lambda",
+  );
+  const stepFunctionResources = resources.filter(
+    (item) => item.AWS.Service === "step-function",
+  );
+
   return {
     props: {
       resources: {
         "AWS Lambda": lambdaResources,
+        "AWS Step Functions": stepFunctionResources,
       },
       services: services || null,
     },

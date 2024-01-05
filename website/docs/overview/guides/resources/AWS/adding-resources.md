@@ -65,7 +65,7 @@ AWS:
   CodeSize: 692
   Description: ""
   LastModified: 2022-11-22T10:55:10.000+0000
-  Account: "670852811695"
+  Account: "123456789123"
   Service: lambda
 catalog:
   updatedAt: "2024-01-02T20:41:55.360Z"
@@ -123,7 +123,7 @@ AWS:
   CodeSize: 692
   Description: ""
   LastModified: 2022-11-22T10:55:10.000+0000
-  Account: "670852811695"
+  Account: "123456789123"
   Service: lambda
 catalog:
   updatedAt: "2024-01-02T20:41:55.360Z"

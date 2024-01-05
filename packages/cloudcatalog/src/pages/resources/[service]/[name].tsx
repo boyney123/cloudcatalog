@@ -22,7 +22,7 @@ interface Props {
   services?: Service[];
 }
 
-const components = (resource: LambdaResource) => {
+const components = (resource: Resource) => {
   return {
     code: ({ className, ...props }: any) => {
       const match = /language-(\w+)/.exec(className || "");
@@ -33,10 +33,20 @@ const components = (resource: LambdaResource) => {
       );
     },
     CLICommand: (props: any) => {
-      const text = props.children.replace(
-        "/FunctionName/",
-        resource.AWS.FunctionName,
-      );
+      let text = "";
+
+      // Refactor when we get more resources....
+
+      text = props.children.replace("/Arn/", resource.AWS.Arn);
+
+      if (resource.AWS.Service === "lambda") {
+        text = text.replace("/FunctionName/", resource.AWS.FunctionName);
+      }
+
+      if (resource.AWS.Service === "step-function" && resource.AWS.Name) {
+        text = text.replace("/StateMachineName/", resource.AWS.Name);
+      }
+
       return (
         <SyntaxHighlighter language="sh" {...props}>
           {text}
@@ -62,7 +72,7 @@ const getImagesForRuntime = (runtime: string) => {
     </div>
   );
 };
-const buildOverviewForResource = (resource: LambdaResource) => {
+const buildOverviewForResource = (resource: Resource) => {
   switch (resource.AWS.Service) {
     case "lambda":
       return [
@@ -72,7 +82,16 @@ const buildOverviewForResource = (resource: LambdaResource) => {
         { name: "Handler", stat: resource.AWS.Handler },
         { name: "Last Modified", stat: resource.AWS.LastModified },
       ];
-      break;
+    case "step-function":
+      return [
+        {
+          name: "Logging Configuration",
+          stat: resource.AWS.LoggingConfiguration,
+        },
+        { name: "Status", stat: resource.AWS.Status },
+        { name: "Type", stat: resource.AWS.Type },
+        { name: "Creation Date", stat: resource.AWS.CreationDate },
+      ];
 
     default:
       return null;

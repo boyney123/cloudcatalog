@@ -30,7 +30,7 @@ export interface Resource {
   service: string;
   name?: string;
   description?: string;
-  AWS: LambdaAWSResource;
+  AWS: LambdaAWSResource | StepFunctionAWSResource;
   owners?: string[];
 }
 
@@ -44,18 +44,22 @@ export interface LambdaAWSResource {
   CodeSize: number;
   Service: "lambda";
 }
+export interface StepFunctionAWSResource {
+  Arn: string;
+  Name: string | undefined;
+  Status: string | undefined;
+  CreationDate: string | undefined;
+  Type: string | undefined;
+  LoggingConfiguration: LogLevel | undefined;
+  Account: string;
+  Service: "step-function";
+}
 
 export interface LambdaResource extends Resource {
-  AWS: {
-    Arn: string;
-    LastModified: string;
-    FunctionName: string;
-    MemorySize: number;
-    Runtime: string;
-    Handler: string;
-    CodeSize: number;
-    Service: "lambda";
-  };
+  AWS: LambdaAWSResource;
+}
+export interface StepFunctionResource extends Resource {
+  AWS: StepFunctionAWSResource;
 }
 
 export interface Service {
