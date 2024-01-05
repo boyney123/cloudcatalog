@@ -110,7 +110,7 @@ export default function Example({ resources, services }: Props) {
                             >
                               <img
                                 className="w-6 opacity-90"
-                                src="/services/lambda.svg"
+                                src={`/services/${resource.AWS.Service}.svg`}
                               />
                               <div>
                                 <span className="block font-bold">
