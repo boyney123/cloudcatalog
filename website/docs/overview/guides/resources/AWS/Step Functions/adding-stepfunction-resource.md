@@ -22,7 +22,7 @@ To import a Step Function state machine into the Catalog your AWS credentials wi
 2. Import the Step Function state machine resource into your catalog by running the following command:
 
 ```sh
-npx @cloudcatalog/cli import-resource {arn}
+npx @cloudcatalog/cli@latest import-resource {arn}
 ```
 
 3. Start your CloudCatalog

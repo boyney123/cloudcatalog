@@ -22,7 +22,7 @@ To import a Lambda function into the Catalog your AWS credentials will need the 
 2. Import the Lambda resource into your catalog by running the following command:
 
 ```sh
-npx @cloudcatalog/cli import-resource {arn}
+npx @cloudcatalog/cli@latest import-resource {arn}
 ```
 
 3. Start your CloudCatalog

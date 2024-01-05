@@ -25,11 +25,11 @@ The easiest way to add a resource to your project is to use the `@cloudcatalog/c
 To import a resource into your project run the following command:
 
 ```bash
-npx @cloudcatalog/cli import-resource {arn}
+npx @cloudcatalog/cli@latest import-resource {arn}
 ```
 
 ```sh title="Example: Import a Lambda ARN"
-npx @cloudcatalog/cli import-resource arn:aws:lambda:us-west-2:1234567891234:function:my-awesome-function
+npx @cloudcatalog/cli@latest import-resource arn:aws:lambda:us-west-2:1234567891234:function:my-awesome-function
 ```
 
 This command will make a request to get the information required for the given resource and then will document your resource.
