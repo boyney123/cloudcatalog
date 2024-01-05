@@ -17,6 +17,7 @@ catalog:
 owners:
   - dboyne
   - payment-team  
+service: payment-service
 ---
 
 
