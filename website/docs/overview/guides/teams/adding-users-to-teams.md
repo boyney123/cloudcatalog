@@ -53,4 +53,4 @@ That's it. We have added both users `dboyne` and `mSmith` to the team `Epic Team
 When you create a team you will give it an `id` field. This `id` value is what you use when mapping users to teams.
 :::
 
-To learn more about the `cloudcatlog.config.js` you can read the [api docs](/docs/api/cloudcatalog.config.js)
+To learn more about the `cloudcatalog.config.js` you can read the [api docs](/docs/api/cloudcatalog.config.js)
