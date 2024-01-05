@@ -65,7 +65,7 @@ const features = [
   },
   {
     name: "Keep up to date",
-    description: "Use CloudCatalog utils to keep your resoruces up to date.",
+    description: "Use CloudCatalog utils to keep your resources up to date.",
     icon: ArrowDownTrayIcon,
   },
   {
