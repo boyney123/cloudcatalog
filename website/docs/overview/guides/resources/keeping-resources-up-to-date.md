@@ -31,7 +31,7 @@ Before you build your CloudCatalog and host your documentation, you can run the 
 
 This command will allow you to update all resources every time you deploy.
 
-:::tip[Want to keep your resouces up to date?]
+:::tip[Want to keep your resources up to date?]
 
 CloudCatalog is just a static website, so you decide how often you want to keep your resources up to date.
 
