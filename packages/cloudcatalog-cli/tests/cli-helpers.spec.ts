@@ -1,4 +1,7 @@
-import { isServiceSupportedByCatalog } from "../src/utils/cli-helpers";
+import {
+  getServiceFromArn,
+  isServiceSupportedByCatalog,
+} from "../src/utils/cli-helpers";
 
 describe("cli-helpers", () => {
   describe("isServiceSupportedByCatalog", () => {
@@ -10,6 +13,12 @@ describe("cli-helpers", () => {
     it("returns false when the given ARN is not a lambda ARN", () => {
       const arn = "arn:aws:events:us-west-2:1234567891234:event-bus/bus";
       expect(isServiceSupportedByCatalog(arn)).toEqual(false);
+    });
+  });
+  describe("getServiceFromArn", () => {
+    it("returns the service of a given arn", () => {
+      const arn = "arn:aws:lambda:us-west-2:1234567891234:function:my-function";
+      expect(getServiceFromArn(arn)).toEqual("lambda");
     });
   });
 });
