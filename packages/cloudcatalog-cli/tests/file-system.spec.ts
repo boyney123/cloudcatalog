@@ -42,7 +42,7 @@ describe("file-system util", () => {
     it("writes the resource to the expected folder based on the filename and service", async () => {
       cwdMock.mockImplementationOnce(() => pathToExampleCatalog);
 
-      console.log('pathToExampleCatalog', pathToExampleCatalog)
+      console.log("pathToExampleCatalog", pathToExampleCatalog);
 
       writeResourceToCatalog({
         data: { test: true },
