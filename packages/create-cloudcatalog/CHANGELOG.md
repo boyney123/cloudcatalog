@@ -1,5 +1,11 @@
 # @cloudcatalog/create-catalog
 
+## 0.0.6
+
+### Patch Changes
+
+- [#16](https://github.com/boyney123/cloudcatalog/pull/16) [`6db8409`](https://github.com/boyney123/cloudcatalog/commit/6db8409b7dcc8ba5ed68e2c4d331378b0434b483) Thanks [@boyney123](https://github.com/boyney123)! - feat: adding step functions to import and catalog
+
 ## 0.0.5
 
 ### Patch Changes
