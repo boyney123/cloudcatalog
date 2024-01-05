@@ -24,8 +24,18 @@
         "ideas",
         "maintenance"
       ]
+    },
+    {
+      "login": "seanlane",
+      "name": "Sean Lane",
+      "avatar_url": "https://avatars.githubusercontent.com/u/5761232?v=4",
+      "profile": "https://sean.lane.sh",
+      "contributions": [
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7,
-  "linkToUsage": true
+  "linkToUsage": true,
+  "commitType": "docs"
 }
