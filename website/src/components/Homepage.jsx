@@ -356,7 +356,7 @@ export default function Example() {
                     </a>
                   </div>
                   <div className="mt-1 text-gray-400">
-                    Developer Adovate @ AWS - Creator of EventCatalog and
+                    Developer Advocate @ AWS - Creator of EventCatalog and
                     CloudCatalog
                   </div>
                 </figcaption>
