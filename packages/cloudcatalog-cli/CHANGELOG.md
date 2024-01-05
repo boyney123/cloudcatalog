@@ -1,5 +1,13 @@
 # @cloudcatalog/cli
 
+## 0.0.5
+
+### Patch Changes
+
+- [#10](https://github.com/boyney123/cloudcatalog/pull/10) [`2276a0c`](https://github.com/boyney123/cloudcatalog/commit/2276a0c7d53e7ec4b14d6ee2e37d0b681fbbd14c) Thanks [@boyney123](https://github.com/boyney123)! - feat: improvements to the resource api
+
+- [#10](https://github.com/boyney123/cloudcatalog/pull/10) [`6268efd`](https://github.com/boyney123/cloudcatalog/commit/6268efd997dd420ee535ac4c95c7588912b19d83) Thanks [@boyney123](https://github.com/boyney123)! - feat: improvements to the resource api
+
 ## 0.0.4
 
 ### Patch Changes
