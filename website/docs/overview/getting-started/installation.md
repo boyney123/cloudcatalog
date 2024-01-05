@@ -97,7 +97,7 @@ Using the `@cloudcatalog/cli` you can import AWS resources into your Catalog.
 Head over to the [resource guide](/docs/overview/guides/resources/introduction) to get started.
 
 :::info
-CloudCatalog is currrently new and only supports importing Lambda functions at the moment.
+CloudCatalog is currrently new and only supports importing Lambda functions and Step Functions state machines at the moment.
 
 We are looking for contributors to help us scale and import many other resources.
 
