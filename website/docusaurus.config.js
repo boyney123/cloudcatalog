@@ -96,6 +96,12 @@ const config = {
             label: "API",
           },
           {
+            type: "docSidebar",
+            sidebarId: "community",
+            position: "left",
+            label: "Community",
+          },
+          {
             href: "https://serverlessland.com",
             label: "Learn Serverless",
             position: "left",
