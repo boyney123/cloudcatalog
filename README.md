@@ -14,7 +14,7 @@
 
 <hr />
 
-<img alt="header" src="https://github.com/boyney123/cloudcatalog/blob/master/website/static/img/screenshot.png?raw=true" />
+<img alt="header" src="https://www.cloudcatalog.dev/img/screenshot.png" />
 
   <h3>Features: Website generator for AWS Architectures, Markdown driven, Document Resources/Services/Owners, and more...</h3>
 
