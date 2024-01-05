@@ -33,7 +33,7 @@ npx @cloudcatalog/cli import-resource arn:aws:lambda:us-west-2:1234567891234:fun
 ```
 
 This command will make a request to get the information required for the given resource and then will document your resource.
-The imported resource will go to `/data/resouces/{service}/{name}.mdx`.
+The imported resource will go to `/data/resources/{service}/{name}.mdx`.
 
 :::tip
 To use the CLI you will need permissions to get the resource. Each resource has various permissions required. You can review them in the source code if you need too.
