@@ -15,6 +15,13 @@ const config: Config = {
       },
     },
   },
+  purge: {
+    safelist: [
+      {
+        pattern: /border-(red|green|blue|pink)-(100|200|300|500)/,
+      },
+    ],
+  },
   plugins: [require("@tailwindcss/typography")],
 };
 export default config;

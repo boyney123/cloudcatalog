@@ -1,6 +1,7 @@
 import * as lambda from "./lambda";
+import * as states from "./states";
 
-type ResourceData = lambda.Data;
+type ResourceData = lambda.Data | states.Data;
 
 interface Resource {
   getData: (arn: string) => Promise<any>;
@@ -10,4 +11,5 @@ interface Resource {
 
 export default {
   lambda,
+  states,
 } as Record<string, Resource>;

@@ -2,23 +2,34 @@ import * as path from "path";
 const PROJECT_DIR = process.env.PROJECT_DIR || "";
 const RESOURCES_DIR = path.join(PROJECT_DIR, "/data/resources");
 import fg from "fast-glob";
-import { LambdaResource, Resource, Service, User } from "@/types";
+import {
+  LambdaResource,
+  Resource,
+  Service,
+  StepFunctionResource,
+  User,
+} from "@/types";
 import { readMarkdownFile } from "./file-reader";
 import { getAllUsers } from "./users";
 
-export const getLambdaResources = async (): Promise<LambdaResource[]> => {
-  const resources = await fg([`${RESOURCES_DIR}/lambda/**.md`]);
+type ServiceResource = LambdaResource | StepFunctionResource;
+
+export const getResources = async (
+  service: string,
+): Promise<ServiceResource[]> => {
+  const resources = await fg([`${RESOURCES_DIR}/${service}/**.md`]);
   const readAllFiles = resources.map((file) =>
     readMarkdownFile(path.join(file)),
   );
   const files = await Promise.all(readAllFiles);
   //@ts-ignore
-  return files.map((file) => file.frontmatter as LambdaResource);
+  return files.map((file) => file.frontmatter as ServiceResource);
 };
 
 export const getAllResources = async () => {
-  const lambdaResources = await getLambdaResources();
-  return [...lambdaResources];
+  const lambdaResources = await getResources("lambda");
+  const stepFunctionsResources = await getResources("step-function");
+  return [...lambdaResources, ...stepFunctionsResources];
 };
 
 export const getAllResourcesForService = async (serviceId: string) => {
@@ -33,7 +44,7 @@ export const getResourceByResourceTypeAndName = async (
   return readMarkdownFile(path.join(RESOURCES_DIR, type, `${name}.md`));
 };
 
-export const groupResourcesByService = async (resources: LambdaResource[]) => {
+export const groupResourcesByService = async (resources: Resource[]) => {
   return resources.reduce((acc: any, resource) => {
     const service = resource.service;
     if (service) {

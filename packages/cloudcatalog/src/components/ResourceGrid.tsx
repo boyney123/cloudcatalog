@@ -2,10 +2,13 @@ import { LambdaAWSResource, Resource } from "@/types";
 import { getResourceName } from "@/util/catalog-data-frontend";
 import { formatBytes } from "@/util/formatters";
 import {
+  BoltIcon,
   CodeBracketIcon,
   CommandLineIcon,
   CpuChipIcon,
   DocumentIcon,
+  InboxIcon,
+  PowerIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import React from "react";
@@ -35,16 +38,48 @@ const getTagsForResourceType = (resource: Resource) => {
     ];
   }
 
+  if (resource.AWS.Service === "step-function") {
+    return [
+      {
+        icon: CommandLineIcon,
+        value: `LOGGING (${resource.AWS.LoggingConfiguration})`,
+        class: "text-green-700",
+      },
+      {
+        icon: PowerIcon,
+        value: resource.AWS.Status,
+        class: "text-green-700",
+      },
+      {
+        icon: resource.AWS.Type === "EXPRESS" ? BoltIcon : InboxIcon,
+        value: resource.AWS.Type,
+        class: "text-green-700",
+      },
+    ];
+  }
+
   return [];
+};
+
+const getStylesForResource = (resource: Resource) => {
+  switch (resource.AWS.Service) {
+    case "lambda":
+      return "border-orange-400";
+    case "step-function":
+      return "border-pink-500";
+    default:
+      return "border-gray-500";
+  }
 };
 
 export const ResourceComponent = ({ resource }: { resource: Resource }) => {
   const tagsForResources = getTagsForResourceType(resource);
+  const stylesForResouce = getStylesForResource(resource);
   return (
     <Link
       href={`/resources/${resource.AWS.Service}/${resource.catalog.path}`}
       key={resource.catalog.path}
-      className=" hover:bg-gray-100 rounded-md  py-4 px-4 flex flex-col justify-between space-y-2 border border-l-8 border-orange-400"
+      className={` hover:bg-gray-100 rounded-md py-4 px-4 flex flex-col justify-between space-y-2 border border-l-8 ${stylesForResouce}`}
     >
       {/* <img src={`/services/${resource.AWS.Service}.svg`} className='w-12'/> */}
       <div className="space-y-2">

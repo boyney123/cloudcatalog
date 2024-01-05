@@ -11,6 +11,11 @@ import {
 import resources from "./resources";
 import { writeResourceToCatalog } from "./utils/file-system";
 
+const arnServiceToFriendlyServiceName = (service: string) => {
+  if (service === "states") return "step-function";
+  return service;
+};
+
 yargs(hideBin(process.argv))
   .command(
     "import-resource <arn>",
@@ -49,7 +54,7 @@ yargs(hideBin(process.argv))
         data,
         markdown,
         fileName,
-        service,
+        service: arnServiceToFriendlyServiceName(service),
       });
 
       return;
