@@ -117,7 +117,7 @@ export default function Example() {
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   CloudCatalog is an Open Source project that helps you document
                   your{" "}
-                  <span className="text-orange-400 font-bold">resouces</span>,{" "}
+                  <span className="text-orange-400 font-bold">resources</span>,{" "}
                   <span className="text-orange-400 font-bold">services</span>{" "}
                   and <span className="text-orange-400 font-bold">owners</span>.
                   <p className="text-xs mt-3">
