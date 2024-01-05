@@ -1,5 +1,11 @@
 # @cloudcatalog/core
 
+## 0.0.4
+
+### Patch Changes
+
+- [#12](https://github.com/boyney123/cloudcatalog/pull/12) [`b6b8b7c`](https://github.com/boyney123/cloudcatalog/commit/b6b8b7c16a5ef1754cbba533192e40ed1144ffce) Thanks [@boyney123](https://github.com/boyney123)! - chore: updating open graph images
+
 ## 0.0.3
 
 ### Patch Changes
