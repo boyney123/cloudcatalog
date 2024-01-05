@@ -69,7 +69,7 @@ const config = {
       },
       announcementBar: {
         content:
-          '⭐️ If you like CloudCatalog, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/boyney123/cloudcatalog">GitHub</a>! ⭐️',
+          '⭐️⭐️ If you like CloudCatalog, give it a star on <a target="_blank" rel="noopener noreferrer" href="https://github.com/boyney123/cloudcatalog">GitHub</a>! ⭐️⭐️',
       },
       docs: {
         sidebar: {
