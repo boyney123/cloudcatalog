@@ -37,4 +37,4 @@ yarn-error.log*
 .turbo
 
 /packages/awscatalog/awscatalog.config.js
-/packages/cloudcatalog-cli/tests/**/data/*
+/packages/cloudcatalog-cli/tests/**/data/resources/*
