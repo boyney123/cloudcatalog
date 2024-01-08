@@ -34,8 +34,6 @@ describe("lambda resource", () => {
         "arn:aws:states:us-west-2:123456789123:stateMachine:MyStateMachine",
       );
 
-      console.log(JSON.stringify(result, null, 4));
-
       expect(result).toEqual({
         name: "MyStateMachine",
         description: "AWS Step Function",

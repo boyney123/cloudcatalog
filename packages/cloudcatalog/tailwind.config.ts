@@ -20,6 +20,9 @@ const config: Config = {
       {
         pattern: /border-(red|green|blue|pink)-(100|200|300|500)/,
       },
+      {
+        pattern: /col-span-2/,
+      },
     ],
   },
   plugins: [require("@tailwindcss/typography")],
