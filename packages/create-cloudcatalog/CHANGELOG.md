@@ -1,5 +1,11 @@
 # @cloudcatalog/create-catalog
 
+## 0.0.8
+
+### Patch Changes
+
+- [#23](https://github.com/boyney123/cloudcatalog/pull/23) [`b692517`](https://github.com/boyney123/cloudcatalog/commit/b692517e3376016ddc9e0f3c7517e345ad4b919c) Thanks [@boyney123](https://github.com/boyney123)! - feat: adding sqs resource to the catalog
+
 ## 0.0.7
 
 ### Patch Changes
