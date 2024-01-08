@@ -30,7 +30,7 @@ export interface Resource {
   service: string;
   name?: string;
   description?: string;
-  AWS: LambdaAWSResource | StepFunctionAWSResource;
+  AWS: LambdaAWSResource | StepFunctionAWSResource | SQSAWSResource;
   owners?: string[];
 }
 
@@ -55,11 +55,29 @@ export interface StepFunctionAWSResource {
   Service: "step-function";
 }
 
+export interface SQSAWSResource {
+  Arn: string;
+  Name: string;
+  CreatedTimestamp: string | undefined;
+  VisibilityTimeout: number | undefined;
+  MaximumMessageSize: number | undefined;
+  MessageRetentionPeriod: number | undefined;
+  ReceiveMessageWaitTimeSeconds: string | undefined;
+  DelaySeconds: string | undefined;
+  SqsManagedSseEnabled: string | undefined;
+  QueueUrl: string | undefined;
+  Account: string;
+  Service: "sqs";
+}
+
 export interface LambdaResource extends Resource {
   AWS: LambdaAWSResource;
 }
 export interface StepFunctionResource extends Resource {
   AWS: StepFunctionAWSResource;
+}
+export interface SQSResource extends Resource {
+  AWS: SQSAWSResource;
 }
 
 export interface Service {

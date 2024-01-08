@@ -24,7 +24,7 @@ export default function Example() {
   return (
     <header className=" bg-gray-900">
       <nav
-        className="flex items-center justify-between p-4 lg:px-8 max-w-7xl mx-auto"
+        className="flex items-center justify-between py-4  max-w-7xl mx-auto"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">

@@ -11,6 +11,7 @@ import {
 } from "@/types";
 import { readMarkdownFile } from "./file-reader";
 import { getAllUsers } from "./users";
+import serviceMap from "../service-map.json";
 
 type ServiceResource = LambdaResource | StepFunctionResource;
 
@@ -29,7 +30,8 @@ export const getResources = async (
 export const getAllResources = async () => {
   const lambdaResources = await getResources("lambda");
   const stepFunctionsResources = await getResources("step-function");
-  return [...lambdaResources, ...stepFunctionsResources];
+  const sqsResources = await getResources("sqs");
+  return [...lambdaResources, ...stepFunctionsResources, ...sqsResources];
 };
 
 export const getAllResourcesForService = async (serviceId: string) => {
@@ -58,6 +60,17 @@ export const groupResourcesByService = async (resources: Resource[]) => {
         [service]: resourcesInService,
       };
     }
+    return acc;
+  }, {});
+};
+
+export const groupResourcesByAWSServiceName = (
+  resources: Resource[],
+): Promise<Record<string, Resource>> => {
+  return resources.reduce((acc: any, resource) => {
+    const service = serviceMap[resource.AWS.Service];
+    acc[service] = acc[service] || [];
+    acc[service].push(resource);
     return acc;
   }, {});
 };

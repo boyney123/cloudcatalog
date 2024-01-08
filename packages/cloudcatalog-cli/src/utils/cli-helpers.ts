@@ -1,6 +1,6 @@
 import { ARN, parse } from "@aws-sdk/util-arn-parser";
 
-const supportedServices = ["lambda", "states"];
+const supportedServices = ["lambda", "states", "sqs"];
 
 export const isServiceSupportedByCatalog = (arn: string) => {
   const { service } = parse(arn);

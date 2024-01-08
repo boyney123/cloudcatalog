@@ -1,7 +1,11 @@
 import { LambdaResource } from "@/types";
 import Link from "next/link";
 import { getResourceName } from "@/util/catalog-data-frontend";
-import { getAllResources, groupResourcesByService } from "@/util/resources";
+import {
+  getAllResources,
+  groupResourcesByService,
+  groupResourcesByAWSServiceName,
+} from "@/util/resources";
 
 interface Props {
   resources: Record<string, LambdaResource[]>;
@@ -12,7 +16,7 @@ export default function Example({ resources, services }: Props) {
   return (
     <main className="sm:bg-top md:min-h-screen bg-gray-200 ">
       <div className="bg-gray-800">
-        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-18  lg:flex lg:justify-between ">
+        <div className="mx-auto max-w-7xl py-16  sm:py-18  lg:flex lg:justi5y-between ">
           <div className="max-w-7xl">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               Overview
@@ -139,20 +143,11 @@ export default function Example({ resources, services }: Props) {
 export async function getStaticProps({ params }: any) {
   const resources = await getAllResources();
   const services = await groupResourcesByService(resources);
-
-  const lambdaResources = resources.filter(
-    (item) => item.AWS.Service === "lambda",
-  );
-  const stepFunctionResources = resources.filter(
-    (item) => item.AWS.Service === "step-function",
-  );
+  const groupedResources = await groupResourcesByAWSServiceName(resources);
 
   return {
     props: {
-      resources: {
-        "AWS Lambda": lambdaResources,
-        "AWS Step Functions": stepFunctionResources,
-      },
+      resources: groupedResources,
       services: services || null,
     },
   };

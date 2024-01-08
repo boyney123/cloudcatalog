@@ -9,3 +9,13 @@ export const formatBytes = (bytes: number, decimals = 2) => {
 
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 };
+
+export const formatSecondsToFriendlyString = (seconds: number) => {
+  if (seconds < 60) {
+    return seconds + " seconds";
+  } else if (seconds < 86400) {
+    return Math.round(seconds / 60) + " minutes";
+  } else {
+    return Math.round(seconds / 86400) + " days";
+  }
+};

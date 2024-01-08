@@ -1,12 +1,13 @@
-import { LambdaAWSResource, Resource } from "@/types";
+import { Resource } from "@/types";
 import { getResourceName } from "@/util/catalog-data-frontend";
-import { formatBytes } from "@/util/formatters";
+import { formatBytes, formatSecondsToFriendlyString } from "@/util/formatters";
 import {
   BoltIcon,
-  CodeBracketIcon,
+  ClockIcon,
   CommandLineIcon,
   CpuChipIcon,
   DocumentIcon,
+  EyeIcon,
   InboxIcon,
   PowerIcon,
 } from "@heroicons/react/24/outline";
@@ -17,6 +18,7 @@ interface Props {
   resources: Resource[];
 }
 
+// TODO: Clean this up!
 const getTagsForResourceType = (resource: Resource) => {
   if (resource.AWS.Service === "lambda") {
     return [
@@ -58,15 +60,38 @@ const getTagsForResourceType = (resource: Resource) => {
     ];
   }
 
+  if (resource.AWS.Service === "sqs") {
+    return [
+      {
+        icon: ClockIcon,
+        value: resource.AWS.MessageRetentionPeriod
+          ? `Retention: ${formatSecondsToFriendlyString(
+              resource.AWS.MessageRetentionPeriod,
+            )}`
+          : "Retention: Unknown",
+        class: "text-green-700",
+      },
+      {
+        icon: EyeIcon,
+        value: resource.AWS.VisibilityTimeout
+          ? `Visibility timeout: ${resource.AWS.VisibilityTimeout / 60} minutes`
+          : "",
+        class: "text-green-700",
+      },
+    ];
+  }
+
   return [];
 };
 
 const getStylesForResource = (resource: Resource) => {
   switch (resource.AWS.Service) {
     case "lambda":
-      return "border-orange-400";
+      return "border-orange-400 hover:bg-orange-100";
     case "step-function":
-      return "border-pink-500";
+      return "border-pink-500 hover:bg-pink-100";
+    case "sqs":
+      return "border-pink-500 hover:bg-pink-100";
     default:
       return "border-gray-500";
   }
@@ -83,16 +108,28 @@ export const ResourceComponent = ({ resource }: { resource: Resource }) => {
     >
       {/* <img src={`/services/${resource.AWS.Service}.svg`} className='w-12'/> */}
       <div className="space-y-2">
-        <div className="flex">
-          <span className="text-sm font-bold">{getResourceName(resource)}</span>
-          <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-            {resource.AWS.Service}
-          </span>
-        </div>
-        <div>
-          <span className="text-xs leading-2 block">
-            {resource.description}
-          </span>
+        <div className="flex justify-between">
+          <div className="space-y-2">
+            <div className="flex">
+              <span className="text-sm font-bold">
+                {getResourceName(resource)}
+              </span>
+              <span className="ml-2 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                {resource.AWS.Service}
+              </span>
+            </div>
+            <div>
+              <span className="text-xs leading-2 block">
+                {resource.description}
+              </span>
+            </div>
+          </div>
+          <div>
+            <img
+              src={`/services/${resource.AWS.Service}.svg`}
+              className="opacity-80 rounded-md"
+            />
+          </div>
         </div>
       </div>
       {tagsForResources && tagsForResources.length > 0 && (

@@ -2,7 +2,7 @@ import SyntaxHighlighter from "@/components/SyntaxHighlighter";
 import { LambdaResource, Resource, Service, Team, User } from "@/types";
 import { getConsoleURL } from "@/util/arn-to-console-url";
 import { getResourceName } from "@/util/catalog-data-frontend";
-import { formatBytes } from "@/util/formatters";
+import { formatBytes, formatSecondsToFriendlyString } from "@/util/formatters";
 import {
   getAllResources,
   getResourceByResourceTypeAndName,
@@ -10,6 +10,7 @@ import {
 } from "@/util/resources";
 import { getServiceByName } from "@/util/services";
 import { getTeamsByResource } from "@/util/teams";
+import { ShieldCheckIcon } from "@heroicons/react/24/outline";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import Link from "next/link";
 import React from "react";
@@ -47,6 +48,14 @@ const components = (resource: Resource) => {
         text = text.replace("/StateMachineName/", resource.AWS.Name);
       }
 
+      if (
+        resource.AWS.Service === "sqs" &&
+        resource.AWS.Name &&
+        resource.AWS.QueueUrl
+      ) {
+        text = text.replace("/QueueUrl/", resource.AWS.QueueUrl);
+      }
+
       return (
         <SyntaxHighlighter language="sh" {...props}>
           {text}
@@ -72,7 +81,9 @@ const getImagesForRuntime = (runtime: string) => {
     </div>
   );
 };
-const buildOverviewForResource = (resource: Resource) => {
+const buildOverviewForResource = (
+  resource: Resource,
+): { name: string; stat: any; icon?: any; colSpan?: number }[] | null => {
   switch (resource.AWS.Service) {
     case "lambda":
       return [
@@ -92,6 +103,57 @@ const buildOverviewForResource = (resource: Resource) => {
         { name: "Type", stat: resource.AWS.Type },
         { name: "Creation Date", stat: resource.AWS.CreationDate },
       ];
+    case "sqs":
+      return [
+        {
+          name: "Maximum Message Size",
+          stat: resource.AWS.MaximumMessageSize
+            ? formatBytes(resource.AWS.MaximumMessageSize)
+            : "",
+        },
+        {
+          name: "Message Retention Period",
+          stat: resource.AWS.MessageRetentionPeriod
+            ? formatSecondsToFriendlyString(resource.AWS.MessageRetentionPeriod)
+            : "Unknown",
+        },
+        {
+          name: "Default visibility timeout",
+          stat: resource.AWS.VisibilityTimeout
+            ? `${resource.AWS.VisibilityTimeout / 60} minutes`
+            : "",
+        },
+        {
+          name: "Delivery Delay",
+          stat: `${resource.AWS.DelaySeconds} Seconds`,
+        },
+        {
+          name: "Receive message wait time",
+          stat: `${resource.AWS.ReceiveMessageWaitTimeSeconds} Seconds`,
+        },
+        {
+          name: "Encryption",
+          icon: ShieldCheckIcon,
+          stat:
+            resource.AWS.SqsManagedSseEnabled === "true"
+              ? "Amazon SQS key (SSE-SQS)"
+              : "Disabled",
+        },
+        {
+          name: "Created Date",
+          stat: resource.AWS.CreatedTimestamp,
+          colSpan: 2,
+        },
+        {
+          name: "Queue URL",
+          stat: (
+            <SyntaxHighlighter className="text-xs" language={"bash"}>
+              {resource.AWS.QueueUrl}
+            </SyntaxHighlighter>
+          ),
+          colSpan: 2,
+        },
+      ];
 
     default:
       return null;
@@ -110,16 +172,16 @@ const ResourcePage = ({
   return (
     <div className="pb-20 ">
       <div className="bg-gray-800 border-b-8 border-yellow-600">
-        <div className="mx-auto max-w-7xl py-16 px-4 sm:py-24 sm:px-6 lg:flex lg:justify-between lg:px-8">
-          <div className="max-w-xl">
+        <div className="mx-auto max-w-7xl py-16  sm:py-24  lg:flex justify-between ">
+          <div className="w-full">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {getResourceName(resource)}
             </h2>
             <p className="mt-5 text-xl text-gray-400">{resource.description}</p>
           </div>
-          <div className="w-full max-w-xs -mt-10">
+          <div className="w-full  -mt-10 flex justify-end">
             <img
-              className="w-40 shadow-md opacity-20 rounded-md "
+              className="w-40 shadow-md opacity-75 rounded-md "
               src={`/services/${resource.AWS.Service}.svg`}
             />
           </div>
@@ -145,25 +207,35 @@ const ResourcePage = ({
               </div>
               <div className="mt-6 flow-root">
                 <dl className="grid grid-cols-1 gap-5 sm:grid-cols-2">
-                  {overview.map((item) => (
-                    <div key={item.name} className="overflow-hidde ">
-                      <dt className="truncate font-medium text-gray-500 text-xs">
-                        {item.name}
-                      </dt>
-                      <dd className="mt-1 text-sm font-semibold tracking-tight text-gray-900">
-                        {item.stat}
-                      </dd>
-                    </div>
-                  ))}
+                  {overview.map((item) => {
+                    const colSpanClass = item.colSpan
+                      ? `col-span-${item.colSpan}`
+                      : "";
+                    return (
+                      <div
+                        key={item.name}
+                        className={`overflow-hidden ${colSpanClass}`}
+                      >
+                        <dt className="truncate font-medium text-gray-500  text-xs flex items-center space-x-1">
+                          <span>{item.name} </span>
+                          {/* @ts-ignore */}
+                          {item.icon && <item.icon className="w-4 block" />}
+                        </dt>
+                        <dd className="mt-1 text-sm font-semibold tracking-tight text-gray-900">
+                          {item.stat}
+                        </dd>
+                      </div>
+                    );
+                  })}
                 </dl>
               </div>
               <div className="mt-6">
                 <a
                   href={getConsoleURL(resource.AWS.Arn)}
                   target="_blank"
-                  className="flex w-full items-center justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50"
+                  className="flex w-full items-center justify-center rounded-md border-orange-400 border-2 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-orange-100"
                 >
-                  View in AWS Console
+                  View in AWS Console &rarr;
                 </a>
               </div>
               <span className="block text-xs text-gray-400 mt-4">
