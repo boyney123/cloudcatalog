@@ -9,9 +9,9 @@ After you [import your SQS queue](/docs/overview/guides/resources/AWS/SQS/adding
 The generated markdown file is split into two main parts:
 
 - frontmatter
-  - Stores information about the Lambda function.
+  - Stores information about the SQS Queue.
 - markdown 
-  - Stores documentation about your Lambda function.
+  - Stores documentation about your SQS Queue.
 
 Here is an example of a state machine resource markdown file.
 

@@ -31,7 +31,13 @@ export const getAllResources = async () => {
   const lambdaResources = await getResources("lambda");
   const stepFunctionsResources = await getResources("step-function");
   const sqsResources = await getResources("sqs");
-  return [...lambdaResources, ...stepFunctionsResources, ...sqsResources];
+  const dynamodbResources = await getResources("dynamodb");
+  return [
+    ...lambdaResources,
+    ...stepFunctionsResources,
+    ...sqsResources,
+    ...dynamodbResources,
+  ];
 };
 
 export const getAllResourcesForService = async (serviceId: string) => {

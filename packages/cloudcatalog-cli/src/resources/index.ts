@@ -15,5 +15,5 @@ export default {
   lambda,
   states,
   sqs,
-  dynamodb
+  dynamodb,
 } as Record<string, Resource>;

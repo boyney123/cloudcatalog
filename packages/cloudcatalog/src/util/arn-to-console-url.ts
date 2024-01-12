@@ -12,6 +12,8 @@ export const getConsoleURL = (arn: string) => {
       return `https://console.aws.amazon.com/states/home?region=${region}#/statemachines/view/${encodeURIComponent(
         arn,
       )}`;
+    case "dyanmodb":
+      return `https://${region}.console.aws.amazon.com/dynamodbv2/home?region=${region}#tables:selected=${resource}`;
     case "sqs":
       return `https://${region}.console.aws.amazon.com/sqs/v3/home?region=${region}#/queues/${encodeURIComponent(
         `https://sqs.${region}.amazonaws.com/${resource}`,

@@ -1,5 +1,6 @@
 {
   "lambda": "AWS Lambda",
   "step-function": "AWS Step Functions",
-  "sqs": "Amazon SQS"
+  "sqs": "Amazon SQS",
+  "dynamodb": "Amazon DynamoDB"
 }
