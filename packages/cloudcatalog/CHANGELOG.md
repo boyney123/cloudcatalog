@@ -1,5 +1,11 @@
 # @cloudcatalog/core
 
+## 0.0.8
+
+### Patch Changes
+
+- [#25](https://github.com/boyney123/cloudcatalog/pull/25) [`5155bb9`](https://github.com/boyney123/cloudcatalog/commit/5155bb98bbcaca6feae30ae49a357e628e74b7dd) Thanks [@boyney123](https://github.com/boyney123)! - feat- Adding DynamoDB resource
+
 ## 0.0.7
 
 ### Patch Changes

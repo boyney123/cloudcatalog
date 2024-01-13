@@ -1,7 +1,7 @@
 {
   "name": "@cloudcatalog/create-catalog",
   "description": "Create cloud catalogs with one command",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "bin": {
     "create-catalog": "./dist/index.js"
   },
