@@ -19,27 +19,27 @@ Reimporting resources into CloudCatalog will override these values.
 
 ### `name` {#name}
 
-Friendly name for your SQS Queue. If no name is provided CloudCatalog will render a name for your resource.
+Friendly name for your DynamoDB Table. If no name is provided CloudCatalog will render the name of the DynamoDB Table..
 
 ```mdx title="Example"
 ---
-name: PaymentProcessingQueue
+name: PaymentTable
 ---
 ```
 
 ### `description` {#description}
 
-Short summary of your queue.
+Short summary of your DynamoDB Table.
 
 ```mdx title="Example"
 ---
-description: Queue that stores payments messages
+description: Table storing user payments information
 ---
 ```
 
 ### `owners` {#owners}
 
-An array of users or teams ids that own the SQS queue.
+An array of users or teams ids that own the DynamoDB team.
 
 ```mdx title="Example"
 ---

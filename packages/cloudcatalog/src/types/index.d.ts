@@ -30,7 +30,11 @@ export interface Resource {
   service: string;
   name?: string;
   description?: string;
-  AWS: LambdaAWSResource | StepFunctionAWSResource | SQSAWSResource;
+  AWS:
+    | LambdaAWSResource
+    | StepFunctionAWSResource
+    | SQSAWSResource
+    | DynamoDBAWSResource;
   owners?: string[];
 }
 
@@ -69,9 +73,34 @@ export interface SQSAWSResource {
   Account: string;
   Service: "sqs";
 }
+export interface DynamoDBAWSResource {
+  Arn: string;
+  TableName?: string;
+  CreationDateTime: string | undefined;
+  TableStatus: string | undefined;
+  DeletionProtectionEnabled?: boolean;
+  TableSizeBytes?: number;
+  StreamSpecification?: {
+    StreamEnabled: boolean | undefined;
+    StreamViewType: string;
+  };
+  ProvisionedThroughput?: {
+    ReadCapacityUnits: number;
+    WriteCapacityUnits: number;
+  };
+  AttributeDefinitions?: {
+    AttributeName: string | undefined;
+    AttributeType: any;
+  }[];
+  Account: string;
+  Service: "dynamodb";
+}
 
 export interface LambdaResource extends Resource {
   AWS: LambdaAWSResource;
+}
+export interface DynamoDBResource extends Resource {
+  AWS: DynamoDBAWSResource;
 }
 export interface StepFunctionResource extends Resource {
   AWS: StepFunctionAWSResource;

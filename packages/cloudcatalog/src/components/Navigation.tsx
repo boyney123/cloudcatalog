@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useCatalogConfig } from "@/hooks/CloudCatalog";
 
 const navigation = [
-  { name: "Overview", href: "/overview", current: false },
+  { name: "Overview", href: "/", current: false },
   { name: "Resources", href: "/resources", current: false },
   { name: "Services", href: "/services", current: false },
   { name: "Teams", href: "/teams", current: false },

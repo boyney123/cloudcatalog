@@ -1,85 +1,154 @@
-import { FolderIcon, UserGroupIcon } from "@heroicons/react/24/outline";
-import { useCatalogConfig } from "@/hooks/CloudCatalog";
+import { LambdaResource } from "@/types";
 import Link from "next/link";
+import { getResourceName } from "@/util/catalog-data-frontend";
+import {
+  getAllResources,
+  groupResourcesByService,
+  groupResourcesByAWSServiceName,
+} from "@/util/resources";
 
-import { LifebuoyIcon } from "@heroicons/react/20/solid";
+interface Props {
+  resources: Record<string, LambdaResource[]>;
+  services: Record<string, LambdaResource[]>;
+}
 
-const cards = [
-  {
-    name: "Explore resources",
-    description:
-      "Explore AWS resources that have been imported into the catalog. ",
-    icon: FolderIcon,
-    href: "/resources",
-  },
-  {
-    name: "Explore Services",
-    description: "Explore your services. Services are made up from resources.",
-    icon: LifebuoyIcon,
-    href: "/services",
-  },
-  {
-    name: "Teams",
-    description:
-      "Explore teams within your company. Understand who owns which resource or service.",
-    icon: UserGroupIcon,
-    href: "/teams",
-  },
-];
-
-export default function Example() {
-  const { title, tagline } = useCatalogConfig();
-
+export default function Example({ resources, services }: Props) {
   return (
-    <div className="bg-gray-800">
-      <div className="relative isolate">
-        <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-          <div className="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl">
-            <div
-              className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-              style={{
-                clipPath:
-                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-              }}
-            />
-          </div>
-          <div className="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu">
-            <div
-              className="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20"
-              style={{
-                clipPath:
-                  "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
-              }}
-            />
-          </div>
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:mx-0">
-              <h2 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-                {title}
-              </h2>
-              <p className="mt-6 text-lg leading-8 text-gray-300">{tagline}</p>
-            </div>
-            <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-8">
-              {cards.map((card) => (
-                <Link
-                  href={card.href}
-                  key={card.name}
-                  className="flex gap-x-4 rounded-xl bg-white/5 p-6 ring-1 ring-inset ring-white/10 hover:opacity-90 hover:ring-white"
-                >
-                  <card.icon
-                    className="h-7 w-5 flex-none text-indigo-400"
-                    aria-hidden="true"
-                  />
-                  <div className="text-base leading-7">
-                    <h3 className="font-semibold text-white">{card.name}</h3>
-                    <p className="mt-2 text-gray-300">{card.description}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
+    <main className="sm:bg-top md:min-h-screen bg-gray-200 ">
+      <div className="bg-gray-800">
+        <div className="mx-auto max-w-7xl py-16  sm:py-18  lg:flex lg:justi5y-between ">
+          <div className="max-w-7xl">
+            <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Overview
+            </h2>
           </div>
         </div>
       </div>
-    </div>
+
+      <main className="space-y-10 pb-20">
+        {services && (
+          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-lg bg-white  px-5 py-6 shadow sm:px-6 -mt-10">
+            <section aria-labelledby="products-heading" className="pb-4">
+              <h2 className="font-bold text-xl">Services</h2>
+            </section>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 text-xs">
+              {Object.keys(services).map((service) => {
+                return (
+                  <div
+                    className="border border-gray-100 shadow-md"
+                    key={service}
+                  >
+                    <div className="bg-gray-800 text-white py-2 px-4 font-bold text-sm flex justify-between items-center">
+                      <span className="block">
+                        {service} ({services[service].length})
+                      </span>
+                      <Link
+                        href={`/services/${service}`}
+                        className="block text-xs text-blue-300"
+                      >
+                        View &rarr;
+                      </Link>
+                    </div>
+                    <ul>
+                      {services[service].slice(0, 5).map((resource) => {
+                        return (
+                          <li className="group" key={resource.catalog.path}>
+                            <Link
+                              href={`/resources/${resource.AWS.Service}/${resource.catalog.path}`}
+                              className="group-odd:bg-gray-50 group-even:bg-white w-full flex items-center px-4 py-2 space-x-2 hover:group-odd:bg-gray-200  hover:group-even:bg-gray-200 hover:cursor-pointer"
+                            >
+                              <img
+                                className="w-6 opacity-90"
+                                src={`/services/${resource.AWS.Service}.svg`}
+                              />
+                              <div>
+                                <span className="block font-bold">
+                                  {getResourceName(resource)}
+                                </span>
+                                <span className="block text-xs text-gray-500">
+                                  {resource.description}
+                                </span>
+                              </div>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </div>
+                );
+              })}
+            </div>
+          </main>
+        )}
+
+        <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 rounded-lg bg-white  px-5 py-6 shadow sm:px-6 -mt-10">
+          <section aria-labelledby="products-heading" className="pb-4">
+            <h2 className="font-bold text-xl">All resources</h2>
+          </section>
+
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 text-xs">
+            {Object.keys(resources).map((resourceType) => {
+              return (
+                <div
+                  className="border border-gray-100 shadow-md"
+                  key={resourceType}
+                >
+                  <div className="bg-gray-800 text-white py-2 px-4 font-bold text-sm flex justify-between items-center">
+                    <span className="block">
+                      {resourceType} ({resources[resourceType].length})
+                    </span>
+                    <Link
+                      href="/resources"
+                      className="block text-xs text-blue-300"
+                    >
+                      View all &rarr;
+                    </Link>
+                  </div>
+                  <ul>
+                    {resources[resourceType].slice(0, 5).map((item) => {
+                      return (
+                        <li className="group" key={item.catalog.path}>
+                          <Link
+                            href={`/resources/${item.AWS.Service}/${item.catalog.path}`}
+                            className="group-odd:bg-gray-50 group-even:bg-white w-full flex items-center px-4 py-2 space-x-2 hover:group-odd:bg-gray-200  hover:group-even:bg-gray-200 hover:cursor-pointer"
+                          >
+                            <img
+                              className="w-6 opacity-90"
+                              src={`/services/${item.AWS.Service}.svg`}
+                            />
+                            <div>
+                              <span className="block font-bold">
+                                {getResourceName(item)}
+                              </span>
+                              <span className="block text-xs text-gray-500">
+                                {item.description}
+                              </span>
+                            </div>
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+        </main>
+      </main>
+    </main>
   );
+}
+
+export async function getStaticProps({ params }: any) {
+  const resources = await getAllResources();
+  const services = await groupResourcesByService(resources);
+  const groupedResources = await groupResourcesByAWSServiceName(resources);
+
+  return {
+    props: {
+      resources: groupedResources,
+      services: services || null,
+    },
+  };
 }

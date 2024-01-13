@@ -103,6 +103,40 @@ const buildOverviewForResource = (
         { name: "Type", stat: resource.AWS.Type },
         { name: "Creation Date", stat: resource.AWS.CreationDate },
       ];
+    case "dynamodb":
+      return [
+        {
+          name: "Table Status",
+          stat: resource.AWS.TableStatus,
+        },
+        {
+          name: "Table Size",
+          stat: resource.AWS.TableSizeBytes
+            ? formatBytes(resource.AWS.TableSizeBytes)
+            : "",
+        },
+        {
+          name: "Deletion Protection",
+          stat: resource.AWS.DeletionProtectionEnabled ? "On" : "Off",
+        },
+        {
+          name: "Stream enabled",
+          stat: resource.AWS.StreamSpecification?.StreamEnabled ? "On" : "Off",
+        },
+        {
+          name: "Read Capacity Units",
+          stat: resource.AWS.ProvisionedThroughput?.ReadCapacityUnits,
+        },
+        {
+          name: "Write Capacity Units",
+          stat: resource.AWS.ProvisionedThroughput?.WriteCapacityUnits,
+        },
+        {
+          name: "Creation Date",
+          stat: resource.AWS.CreationDateTime,
+          colSpan: 2,
+        },
+      ];
     case "sqs":
       return [
         {
