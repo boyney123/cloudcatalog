@@ -2,6 +2,8 @@ import { Resource } from "@/types";
 import { getResourceName } from "@/util/catalog-data-frontend";
 import { formatBytes, formatSecondsToFriendlyString } from "@/util/formatters";
 import {
+  ArchiveBoxXMarkIcon,
+  ArrowsRightLeftIcon,
   BoltIcon,
   ClockIcon,
   CommandLineIcon,
@@ -76,6 +78,32 @@ const getTagsForResourceType = (resource: Resource) => {
         value: resource.AWS.VisibilityTimeout
           ? `Visibility timeout: ${resource.AWS.VisibilityTimeout / 60} minutes`
           : "",
+        class: "text-green-700",
+      },
+    ];
+  }
+
+  if (resource.AWS.Service === "dynamodb") {
+    return [
+      {
+        icon: PowerIcon,
+        value: resource.AWS.TableStatus,
+        class: "text-green-700",
+      },
+      {
+        icon: ArrowsRightLeftIcon,
+        value: `Stream ${
+          resource.AWS.StreamSpecification?.StreamEnabled
+            ? "Enabled"
+            : "Disabled"
+        }`,
+        class: "text-green-700",
+      },
+      {
+        icon: ArchiveBoxXMarkIcon,
+        value: `Deletion protection ${
+          resource.AWS.DeletionProtectionEnabled ? "enabled" : "disabled"
+        }`,
         class: "text-green-700",
       },
     ];
