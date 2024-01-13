@@ -1,5 +1,11 @@
 # @cloudcatalog/create-catalog
 
+## 0.0.10
+
+### Patch Changes
+
+- [#27](https://github.com/boyney123/cloudcatalog/pull/27) [`d063331`](https://github.com/boyney123/cloudcatalog/commit/d06333139d7e28a728d8ac03d4a3f7b7fcb11443) Thanks [@boyney123](https://github.com/boyney123)! - adding new ddb resource on creation of catalog
+
 ## 0.0.9
 
 ### Patch Changes
