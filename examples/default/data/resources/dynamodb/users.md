@@ -6,7 +6,7 @@ owners:
   - dboyne
   - user-team
 AWS:
-  Arn: arn:aws:dynamodb:us-west-2:670852811695:table/user-payments
+  Arn: arn:aws:dynamodb:us-west-2:123456789123:table/user-payments
   TableName: user-payments
   CreationDateTime: '2022-09-15T09:56:47.097Z'
   DeletionProtectionEnabled: false

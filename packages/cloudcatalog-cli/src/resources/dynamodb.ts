@@ -29,7 +29,7 @@ export interface Data {
   };
 }
 
-// arn:aws:dynamodb:us-west-2:670852811695:table/boynestore-users
+// arn:aws:dynamodb:us-west-2:123456789123:table/boynestore-users
 
 // Code that runs to get information about the resource.
 export const getData = async (arn: string): Promise<Data> => {
