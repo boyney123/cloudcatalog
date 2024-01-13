@@ -38,16 +38,13 @@ The user-payments table is an integral component of our payment service, designe
 ### Retrieve User Transaction History
 - **Use Case**: Fetch all transactions made by a specific user.
 - **Query Pattern**: Query the table using the userId as the partition key. This returns all items with the matching userId, sorted by transactionId.
-- **Example Query**: `SELECT * FROM user-payments WHERE userId = :userId`
 
 ### Lookup Specific Transaction
 
 - **Use Case**: Retrieve details of a specific transaction for a user.
 - **Query Pattern**: Use both userId (partition key) and transactionId (sort key) to get the specific transaction record.
-- **Example Query**: `SELECT * FROM user-payments WHERE userId = :userId AND transactionId = :transactionId`
 
 ### Query Transactions Based on Status
 
 - **Use Case**: Identify transactions that are pending, successful, or failed.
 - **Implementation**: This may require the use of a Global Secondary Index (GSI) with status as the key if frequent queries are made based on the transaction status.
-- **Example Query**: `SELECT * FROM user-payments-index-status WHERE status = :status`
