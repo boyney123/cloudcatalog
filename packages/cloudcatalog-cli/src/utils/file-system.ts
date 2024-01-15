@@ -37,16 +37,8 @@ export const writeResourceToCatalog = ({
     );
   }
 
-  const frontmatter = yaml.dump({
-    ...data,
-    catalog: {
-      updatedAt: new Date().toISOString(),
-      parent: service,
-      path: fileName,
-    },
-  });
-
   let markdown = defaultMarkdown;
+  let fileData = data;
 
   // Does the file already exist?
   if (fs.existsSync(pathToFile)) {
@@ -57,8 +49,23 @@ export const writeResourceToCatalog = ({
     );
     const rawFile = fs.readFileSync(pathToFile, "utf-8");
     const parsedContent = matter(rawFile);
+    const existingFrontMatter = parsedContent.data;
+    const { AWS, catalog, ...userGeneratedContent } = existingFrontMatter;
     markdown = parsedContent.content;
+    fileData = {
+      ...fileData,
+      ...userGeneratedContent,
+    };
   }
+
+  let frontmatter = yaml.dump({
+    ...fileData,
+    catalog: {
+      updatedAt: new Date().toISOString(),
+      parent: service,
+      path: fileName,
+    },
+  });
 
   const file = `---\n${frontmatter}---\n\n${markdown}`;
 

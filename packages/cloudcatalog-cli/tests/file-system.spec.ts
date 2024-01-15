@@ -68,6 +68,7 @@ describe("file-system util", () => {
       cwdMock.mockImplementationOnce(() => pathToExampleCatalog);
 
       const exampleFile = `---
+service: my-awesome-service
 AWS:
   FunctionName: function-name
   MemorySize: 1024
@@ -109,8 +110,8 @@ My Awesome Custom content`;
             Account: "account-id",
             Service: "lambda",
           },
-          description: "My Awesome Function",
-          name: "function-name",
+          description: "Should not override",
+          name: "Will not override",
         },
         fileName: "function-name",
         markdown:
@@ -131,6 +132,7 @@ My Awesome Custom content`;
 
       // @ts-ignore
       expect(fileContents).toMatchMarkdown(`---
+service: my-awesome-service      
 AWS:
     Arn: arn:aws:lambda:region:account-id:function:function-name
     FunctionName: function-name
