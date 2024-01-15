@@ -19,6 +19,7 @@
     "@aws-sdk/client-dynamodb": "^3.485.0",
     "@aws-sdk/client-lambda": "^3.236.0",
     "@aws-sdk/client-sfn": "^3.485.0",
+    "@aws-sdk/client-sns": "^3.490.0",
     "@aws-sdk/client-sqs": "^3.485.0",
     "@aws-sdk/util-arn-parser": "^3.208.0",
     "chalk": "4.1.2",
