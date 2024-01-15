@@ -68,6 +68,9 @@ describe("file-system util", () => {
       cwdMock.mockImplementationOnce(() => pathToExampleCatalog);
 
       const exampleFile = `---
+service: my-awesome-service
+name: My awesome function
+description: Custom description that will no be overriden
 AWS:
   FunctionName: function-name
   MemorySize: 1024
@@ -109,8 +112,8 @@ My Awesome Custom content`;
             Account: "account-id",
             Service: "lambda",
           },
-          description: "My Awesome Function",
-          name: "function-name",
+          description: "Should not override",
+          name: "Will not override",
         },
         fileName: "function-name",
         markdown:
@@ -131,26 +134,26 @@ My Awesome Custom content`;
 
       // @ts-ignore
       expect(fileContents).toMatchMarkdown(`---
-AWS:
-    Arn: arn:aws:lambda:region:account-id:function:function-name
-    FunctionName: function-name
-    MemorySize: 1024
-    Runtime: nodejs18.x
-    Handler: index.handler
-    LastModified: '2020-01-01T00:00:00'
-    CodeSize: 510432
-    Description: This is updated
-    Account: account-id
-    Service: lambda
-description: My Awesome Function
-name: function-name  
-catalog:
-    updatedAt: '2020-01-01T00:00:00.000Z'
-    parent: lambda
-    path: function-name
----
-
-My Awesome Custom content`);
+      AWS:
+        Arn: arn:aws:lambda:region:account-id:function:function-name
+        FunctionName: function-name
+        MemorySize: 1024
+        Runtime: nodejs18.x
+        Handler: index.handler
+        LastModified: '2020-01-01T00:00:00'
+        CodeSize: 510432
+        Description: This is updated
+        Account: account-id
+        Service: lambda
+      description: Custom description that will no be overriden
+      name: My awesome function
+      service: my-awesome-service      
+      catalog:
+          updatedAt: '2020-01-01T00:00:00.000Z'
+          parent: lambda
+          path: function-name
+      ---
+      My Awesome Custom content`);
     });
   });
 });
