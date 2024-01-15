@@ -1,5 +1,11 @@
 # @cloudcatalog/cli
 
+## 0.0.9
+
+### Patch Changes
+
+- [#30](https://github.com/boyney123/cloudcatalog/pull/30) [`099b351`](https://github.com/boyney123/cloudcatalog/commit/099b3511a695d269302a36ccfdce7ab1c3a9570c) Thanks [@boyney123](https://github.com/boyney123)! - fix: CLI no longer overrides user values
+
 ## 0.0.8
 
 ### Patch Changes
