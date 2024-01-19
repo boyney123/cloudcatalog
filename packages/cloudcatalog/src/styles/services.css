@@ -1,0 +1,30 @@
+/* .sns {
+  --border-color: theme(colors.pink.500);
+} */
+
+.lambda {
+  --border-color: theme(colors.orange.500);
+}
+
+.sqs {
+  --border-color: theme(colors.pink.500);
+}
+
+.step-function {
+  --border-color: theme(colors.pink.500);
+}
+.dynamodb {
+  --border-color: theme(colors.purple.500);
+}
+
+.apprunner {
+  --border-color: theme(colors.orange.500);
+}
+
+.eventbridge, .events {
+  --border-color: theme(colors.pink.500);
+}
+
+.s3 {
+  --border-color: theme(colors.green.700);
+}
