@@ -44,8 +44,6 @@ export const getData = async (arn: string): Promise<Data> => {
 
   const creationDate = response.Table?.CreationDateTime;
 
-  console.log("response", JSON.stringify(response, null, 4));
-
   return {
     name: response.Table?.TableName,
     description: "DynamoDB Table",

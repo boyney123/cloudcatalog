@@ -4,10 +4,7 @@ import { hideBin } from "yargs/helpers";
 import chalk from "chalk";
 
 import { validate } from "@aws-sdk/util-arn-parser";
-import {
-  getServiceFromArn,
-  isServiceSupportedByCatalog,
-} from "./utils/cli-helpers";
+import { isServiceSupportedByCatalog, parseArn } from "./utils/cli-helpers";
 import resources from "./resources";
 import { writeResourceToCatalog } from "./utils/file-system";
 
@@ -34,13 +31,13 @@ yargs(hideBin(process.argv))
         return process.exit(1);
       }
 
-      if (!isServiceSupportedByCatalog(ARN)) {
-        console.error(`Given service is not supported yet by CloudCatalog`);
-        process.exit(1);
-      }
+      const { service, accountId, resource: arnResource } = parseArn(ARN);
+      let resource = resources[service];
 
-      const service = getServiceFromArn(ARN);
-      const resource = resources[service];
+      // No integration found for CloudCatalog just generic import for now.
+      if (!resource) {
+        resource = resources.generic;
+      }
 
       console.log(
         chalk.cyan(`Importing your ${service} resource into your catalog...`),
@@ -55,6 +52,8 @@ yargs(hideBin(process.argv))
         markdown,
         fileName,
         service: arnServiceToFriendlyServiceName(service),
+        resource: arnResource,
+        accountId,
       });
 
       return;

@@ -1,6 +1,7 @@
 import { LambdaResource } from "@/types";
 import Link from "next/link";
 import { getResourceName } from "@/util/catalog-data-frontend";
+import { ImageWithFallback } from "@/components/ImageWithFallBack";
 import {
   getAllResources,
   groupResourcesByService,
@@ -113,10 +114,19 @@ export default function Example({ resources, services }: Props) {
                             href={`/resources/${item.AWS.Service}/${item.catalog.path}`}
                             className="group-odd:bg-gray-50 group-even:bg-white w-full flex items-center px-4 py-2 space-x-2 hover:group-odd:bg-gray-200  hover:group-even:bg-gray-200 hover:cursor-pointer"
                           >
-                            <img
+                            <ImageWithFallback
+                              className="w-6 opacity-90"
+                              service={item.AWS.Service}
+                              fallbackSrc="/services/generic.svg" // Your fallback image path
+                            />
+                            {/* <img
                               className="w-6 opacity-90"
                               src={`/services/${item.AWS.Service}.svg`}
                             />
+
+
+                          <img src="cat.jpg" onError="this.onerror=null; this.src='/services/lambda.svg'" /> */}
+
                             <div>
                               <span className="block font-bold">
                                 {getResourceName(item)}

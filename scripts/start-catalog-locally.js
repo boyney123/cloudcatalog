@@ -11,8 +11,6 @@ fs.copyFileSync(
   path.join(awsCatalogDir, "cloudcatalog.config.js"),
 );
 
-console.log(projectDIR);
-
 execSync(`PROJECT_DIR=${projectDIR} npm run dev`, {
   cwd: awsCatalogDir,
   stdio: "inherit",

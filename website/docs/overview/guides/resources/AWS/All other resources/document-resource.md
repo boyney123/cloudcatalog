@@ -1,5 +1,23 @@
 ---
-name: Payments table
+sidebar_position: 2
+---
+
+# Documenting
+
+After you [import your resource](/docs/overview/guides/resources/AWS/All%20other%20resources/adding-resource) you can start to add documentation to the resource.
+
+The generated markdown file is split into two main parts:
+
+- frontmatter
+  - Stores information about the resource.
+- markdown 
+  - Stores documentation about your resource.
+
+Here is an example of a DynamoDB resource
+
+```mdx
+---
+name: user-payments
 description: Table storing user payments information
 service: payment-service
 owners:
@@ -33,18 +51,10 @@ catalog:
 
 The user-payments table is an integral component of our payment service, designed to efficiently manage and store transactional data related to user payments. This table serves as a central repository for payment records, ensuring secure and rapid access to transaction details.
 
-## Access patterns
+```
 
-### Retrieve User Transaction History
-- **Use Case**: Fetch all transactions made by a specific user.
-- **Query Pattern**: Query the table using the userId as the partition key. This returns all items with the matching userId, sorted by transactionId.
+### Example resource page
 
-### Lookup Specific Transaction
+Example of what the above resource would render.
 
-- **Use Case**: Retrieve details of a specific transaction for a user.
-- **Query Pattern**: Use both userId (partition key) and transactionId (sort key) to get the specific transaction record.
-
-### Query Transactions Based on Status
-
-- **Use Case**: Identify transactions that are pending, successful, or failed.
-- **Implementation**: This may require the use of a Global Secondary Index (GSI) with status as the key if frequent queries are made based on the transaction status.
+![DynamoDB Example](./img/example.png)
