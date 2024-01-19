@@ -43,7 +43,7 @@ const features = [
   {
     name: "Import resources.",
     description:
-      "Use the CloudCatalog CLI to import resources directly into your Catalog.",
+      "Use the CloudCatalog CLI to import any aws resource directly into your Catalog.",
     icon: CloudArrowUpIcon,
   },
   {
@@ -117,9 +117,12 @@ export default function Example() {
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   CloudCatalog is an Open Source project that helps you document
                   your{" "}
-                  <span className="text-orange-400 font-bold">resources</span>,{" "}
-                  <span className="text-orange-400 font-bold">services</span>{" "}
-                  and <span className="text-orange-400 font-bold">owners</span>.
+                  <span className="text-orange-400 font-bold">
+                    AWS resources
+                  </span>
+                  , <span className="text-orange-400 font-bold">services</span>{" "}
+                  and assign{" "}
+                  <span className="text-orange-400 font-bold">owners</span>.
                   <p className="text-xs mt-3">
                     Powered by markdown, components and CLI tools.
                   </p>
@@ -132,21 +135,20 @@ export default function Example() {
                     Start documenting &rarr;
                   </a>
                   <a
-                    href="/docs/overview/intro"
+                    href="https://app.cloudcatalog.dev/"
                     className="text-md font-semibold leading-6 text-gray-900"
                   >
-                    Learn more <span aria-hidden="true">→</span>
+                    View demo <span aria-hidden="true">→</span>
                   </a>
                 </div>
               </div>
             </div>
           </div>
-          <div className="mt-20 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen ">
-            <div
-              className="absolute inset-y-0 right-1/2 -z-10 -mr-10 w-[200%] skew-x-[-30deg] bg-white shadow-xl shadow-indigo-600/10 ring-1 ring-indigo-50 md:-mr-20 lg:-mr-36"
-              aria-hidden="true"
-            />
-            <div className="shadow-lg md:rounded-3xl">
+          <div className="my-8 sm:mt-24 md:mx-auto md:max-w-2xl lg:mx-0 lg:mt-0 lg:w-screen ">
+            <div className="px-4 md:px-0">
+              <img className="rounded-md shadow-xl" src="/img/example.png" />
+            </div>
+            {/* <div className="shadow-lg md:rounded-3xl">
               <div className="bg-orange-500 [clip-path:inset(0)] md:[clip-path:inset(0_round_theme(borderRadius.3xl))]">
                 <div
                   className="absolute -inset-y-px left-1/2 -z-10 ml-10 w-[200%] skew-x-[-30deg] bg-indigo-100 opacity-20 ring-1 ring-inset ring-white md:ml-20 lg:ml-36"
@@ -183,41 +185,43 @@ export default function Example() {
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
         <div className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-t from-white sm:h-32" />
       </div>
 
-      <div className="bg-gray-100 py-8 md:py-24 px-6 lg:px-0  ">
+      <div className="bg-gray-800 py-8 md:py-24 px-6 lg:px-0  ">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto max-w-2xl sm:text-center">
             <h2 className="text-base font-semibold leading-7 text-orange-600">
               Start documenting in minutes
             </h2>
             {/* <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">CLI tools designed to help</p> */}
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-200 sm:text-4xl">
               Static site generator for your architecture
             </p>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="mt-6 text-lg leading-8 text-gray-300">
               Import your AWS resources into CloudCatalog powered by the{" "}
-              <span className="text-gray-800 font-bold">@cloudcatalog/cli</span>
+              <span className="text-orange-500 font-bold">
+                @cloudcatalog/cli
+              </span>
               .
             </p>
           </div>
         </div>
-        <div className="relative overflow-hidden pt-16">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="relative overflow-hidden pt-8 md:pt-16">
+          <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
             <img
-              src="/img/screenshot.png"
+              src="/img/overview.png"
               alt="App screenshot"
               className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
               width={2432}
               height={1442}
             />
             <div className="relative" aria-hidden="true">
-              <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-gray-100 pt-[7%] graident-image" />
+              <div className="absolute -inset-x-20 bottom-0 bg-gradient-to-t from-gray-800 pt-[7%] graident-image" />
             </div>
           </div>
         </div>
@@ -225,14 +229,14 @@ export default function Example() {
           <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-9">
-                <dt className="inline font-semibold text-gray-900">
+                <dt className="inline font-semibold text-gray-100">
                   <feature.icon
                     className="absolute left-1 top-1 h-5 w-5 text-orange-600"
                     aria-hidden="true"
                   />
                   {feature.name}
                 </dt>{" "}
-                <dd className="inline">{feature.description}</dd>
+                <dd className="inline text-gray-400">{feature.description}</dd>
               </div>
             ))}
           </dl>
@@ -247,12 +251,13 @@ export default function Example() {
                   Resources
                 </h2>
                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                  Import AWS resources
+                  Import any AWS resource
                 </p>
                 <p className="mt-6 text-lg leading-8 text-gray-600">
                   Import and document your AWS resources directly into your
-                  Catalog. Use markdown to document your resources and enrich
-                  them with custom MDX components.
+                  Catalog. Import any resource from any account. Use markdown to
+                  document your resources, group them by service and assign
+                  owners.
                 </p>
                 <div className="mt-8">
                   <a
@@ -276,7 +281,7 @@ export default function Example() {
           </div>
         </div>
       </div>
-      <div className="overflow-hidden bg-gray-100 py-8 pb-24 md:py-24 ">
+      <div className="overflow-hidden bg-gray-800 py-8 pb-24 md:py-24 ">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-start">
             <div className="lg:pr-4 lg:pt-4">
@@ -284,10 +289,10 @@ export default function Example() {
                 <h2 className="text-base font-semibold leading-7 text-orange-600">
                   Ownership
                 </h2>
-                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                <p className="mt-2 text-3xl font-bold tracking-tight text-gray-100 sm:text-4xl">
                   Create users and teams
                 </p>
-                <p className="mt-6 text-lg leading-8 text-gray-600">
+                <p className="mt-6 text-lg leading-8 text-gray-300">
                   Assign your resources or services owners. Owners can be users
                   or teams. Let others know who owns which resource or service
                   in your architecture.
@@ -305,7 +310,7 @@ export default function Example() {
             <img
               src="/img/teams.png"
               alt="Product screenshot"
-              className="w-[48rem] max-w-none rounded-xl shadow-xl ring-1 ring-gray-400/10 sm:w-[57rem] md:-ml-4 lg:ml-0"
+              className="w-[48rem] max-w-none rounded-xl shadow-md shadow-gray-600 sm:w-[57rem] md:-ml-4 lg:ml-0"
               width={2432}
               height={1442}
             />
