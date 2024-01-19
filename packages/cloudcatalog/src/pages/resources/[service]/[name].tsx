@@ -1,3 +1,4 @@
+import { ImageWithFallback } from "@/components/ImageWithFallBack";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter";
 import { LambdaResource, Resource, Service, Team, User } from "@/types";
 import { getConsoleURL } from "@/util/arn-to-console-url";
@@ -204,8 +205,10 @@ const ResourcePage = ({
   const overview = buildOverviewForResource(resource);
   const owners = [...users, ...teams];
   return (
-    <div className="pb-20 ">
-      <div className="bg-gray-800 border-b-8 border-yellow-600">
+    <div className="pb-20 resource-page ">
+      <div
+        className={`bg-gray-800 border-b-8 resource-header border-yellow-600 ${resource.AWS.Service}`}
+      >
         <div className="mx-auto max-w-7xl py-16  sm:py-24  lg:flex justify-between ">
           <div className="w-full">
             <h2 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
@@ -213,11 +216,13 @@ const ResourcePage = ({
             </h2>
             <p className="mt-5 text-xl text-gray-400">{resource.description}</p>
           </div>
-          <div className="w-full  -mt-10 flex justify-end">
-            <img
+          <div className="w-full -mt-10 flex justify-end items-center">
+            <ImageWithFallback
+              service={resource.AWS.Service}
               className="w-40 shadow-md opacity-75 rounded-md "
-              src={`/services/${resource.AWS.Service}.svg`}
+              size="lg"
             />
+            {/* <img className="w-40 shadow-md opacity-75 rounded-md " src={`/services/${resource.AWS.Service}.svg`} /> */}
           </div>
         </div>
       </div>
@@ -228,8 +233,30 @@ const ResourcePage = ({
             <MDXRemote {...source} components={components(resource)} />
           </div>
         </main>
+
         <div className="col-span-4 space-y-2  ">
-          {overview && (
+          {resource?.catalog?.generic && (
+            <div className="rounded-lg bg-white  px-5 py-6 border border-gray-200 shadow sm:px-6">
+              <h2
+                className="text-base font-medium text-gray-900"
+                id="recent-hires-title"
+              >
+                Overview
+              </h2>
+
+              <p className="text-xs text-gray-500 py-4">
+                This resource has not been enriched with data from AWS.{" "}
+                <a
+                  className="text-blue-500 underline mt-2 block"
+                  href="https://cloudcatalog.dev/docs/overview/guides/resources/AWS/All%20other%20resources/contributing"
+                >
+                  Contribute to CloudCatalog to get this resource supported
+                  &rarr;
+                </a>
+              </p>
+            </div>
+          )}
+          {overview && !resource?.catalog?.generic && (
             <div className="rounded-lg bg-white border border-gray-200 shadow  px-5 py-6 shadow sm:px-6">
               <div className="flex justify-between items-center">
                 <h2
@@ -267,7 +294,7 @@ const ResourcePage = ({
                 <a
                   href={getConsoleURL(resource.AWS.Arn)}
                   target="_blank"
-                  className="flex w-full items-center justify-center rounded-md border-orange-400 border-2 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-orange-100"
+                  className={`flex w-full items-center justify-center rounded-md service-button border-2 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-orange-100 ${resource.AWS.Service}`}
                 >
                   View in AWS Console &rarr;
                 </a>

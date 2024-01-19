@@ -128,11 +128,17 @@ const getStylesForResource = (resource: Resource) => {
 export const ResourceComponent = ({ resource }: { resource: Resource }) => {
   const tagsForResources = getTagsForResourceType(resource);
   const stylesForResouce = getStylesForResource(resource);
+
+  const takeToDocs = (e: any) => {
+    e.preventDefault();
+    window.location.href = "http://cloudcatalog.dev";
+  };
+
   return (
     <Link
       href={`/resources/${resource.AWS.Service}/${resource.catalog.path}`}
       key={resource.catalog.path}
-      className={` hover:bg-gray-100 rounded-md py-4 px-4 flex flex-col justify-between space-y-2 border border-l-8 ${stylesForResouce}`}
+      className={` hover:bg-gray-100 rounded-md py-4 px-4 flex flex-col justify-between space-y-2 border border-l-8 resource ${resource.AWS.Service} ${stylesForResouce}`}
     >
       {/* <img src={`/services/${resource.AWS.Service}.svg`} className='w-12'/> */}
       <div className="space-y-2">
@@ -155,11 +161,21 @@ export const ResourceComponent = ({ resource }: { resource: Resource }) => {
           <div>
             <img
               src={`/services/${resource.AWS.Service}.svg`}
-              className="opacity-80 rounded-md"
+              className="opacity-80 rounded-md w-10"
             />
           </div>
         </div>
       </div>
+      {resource.catalog.generic && (
+        <div>
+          <button
+            onClick={takeToDocs}
+            className="text-xs text-gray-600 underline"
+          >
+            Resource enrichment not yet supported &rarr;
+          </button>
+        </div>
+      )}
       {tagsForResources && tagsForResources.length > 0 && (
         <div className="flex space-x-4 text-xs pt-2 relative bottom-0 left-0">
           {tagsForResources.map((tag, index) => {

@@ -33,6 +33,8 @@ describe("file-system util", () => {
           fileName: "my-lambda-function",
           markdown: "Hello World",
           service: "lambda",
+          accountId: "123456789123",
+          resource: "test-resource",
         }),
       ).toThrow(
         "Failed to find a catalog. Please re-run this command in the root directory of your catalog.",
@@ -42,13 +44,13 @@ describe("file-system util", () => {
     it("writes the resource to the expected folder based on the filename and service", async () => {
       cwdMock.mockImplementationOnce(() => pathToExampleCatalog);
 
-      console.log("pathToExampleCatalog", pathToExampleCatalog);
-
       writeResourceToCatalog({
         data: { test: true },
         fileName: "my-lambda-function",
         markdown: "Hello World",
         service: "lambda",
+        accountId: "123456789123",
+        resource: "test-resource",
       });
 
       expect(
@@ -84,6 +86,7 @@ catalog:
   updatedAt: '2020-01-01T00:00:00.000Z'
   parent: lambda
   path: function-name
+  generic: false
 ---
 My Awesome Custom content`;
 
@@ -119,6 +122,8 @@ My Awesome Custom content`;
         markdown:
           "This markdown should not override the markdown already in the document",
         service: "lambda",
+        accountId: "account-id",
+        resource: "test-resource",
       });
 
       const fileContents = fs.readFileSync(
@@ -152,6 +157,7 @@ My Awesome Custom content`;
           updatedAt: '2020-01-01T00:00:00.000Z'
           parent: lambda
           path: function-name
+          generic: false
       ---
       My Awesome Custom content`);
     });

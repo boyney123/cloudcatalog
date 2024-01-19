@@ -26,6 +26,7 @@ export interface Resource {
     parent: string;
     path: string;
     updatedAt: string;
+    generic?: boolean;
   };
   service: string;
   name?: string;

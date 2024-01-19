@@ -1,5 +1,5 @@
 ---
-name: user-payments
+name: Payments table
 description: Table storing user payments information
 service: payment-service
 owners:

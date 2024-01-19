@@ -1,3 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* All AWS Resources styles */
+@import 'services.css';
+
+.resource {
+  border: 1px solid var(--border-color, gray);
+  border-left-width: 8px;
+}
+
+.resource-page .resource-header {
+  border-bottom: 12px solid var(--border-color, gray);
+}
+
+.resource-page .service-button {
+  border: 1px solid var(--border-color, gray);
+}

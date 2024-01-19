@@ -5,9 +5,12 @@ import process from "process";
 import yaml from "js-yaml";
 import matter from "gray-matter";
 import chalk from "chalk";
+import { isServiceSupportedByCatalog } from "./cli-helpers";
 
 interface WriteOptions {
   service: string;
+  accountId: string;
+  resource: string;
   fileName: string;
   data: any;
   markdown: string;
@@ -15,6 +18,8 @@ interface WriteOptions {
 
 export const writeResourceToCatalog = ({
   service,
+  accountId,
+  resource,
   fileName,
   data,
   markdown: defaultMarkdown,
@@ -28,8 +33,6 @@ export const writeResourceToCatalog = ({
     service,
     `${fileName}.md`,
   );
-
-  console.log("pathToFile", path.join(PROJECT_DIR, catalogFileName));
 
   if (!fs.existsSync(path.join(PROJECT_DIR, catalogFileName))) {
     throw new Error(
@@ -64,18 +67,35 @@ export const writeResourceToCatalog = ({
       updatedAt: new Date().toISOString(),
       parent: service,
       path: fileName,
+      // tells cloudcatalog if the content has been enriched or not.
+      generic: fileData?.catalog?.generic || false,
     },
   });
 
   const file = `---\n${frontmatter}---\n\n${markdown}`;
 
+  const serviceEnriched = isServiceSupportedByCatalog(service);
+
   console.log(
     chalk.green(`
 
-      ⭐️ New resource added for ${service} added to your catalog (${fileName}.md)
+⭐️ New resource has been added to your CloudCatalog.
 
-      👉 View your new resource: http://localhost:3000/resources/${service}/${fileName}
-      
+service: ${service}
+resource: ${resource}
+accountId: ${accountId}
+
+📄 Filename: ${fileName}.md
+
+${
+  serviceEnriched
+    ? `🔗 This resource has been enriched read more: \n https://www.cloudcatalog.dev/docs/category/${resource}`
+    : "⚠️  This resource has not been enriched. Want to help and contribute? \n https://www.cloudcatalog.dev/docs/overview/guides/resources/AWS/All%20other%20resources/contributing"
+}
+
+👉 View your new resource 
+http://localhost:3000/resources/${service}/${fileName}
+
       `),
   );
   fs.outputFileSync(pathToFile, file);

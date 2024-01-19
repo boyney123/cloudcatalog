@@ -11,7 +11,7 @@ import {
 } from "@/types";
 import { readMarkdownFile } from "./file-reader";
 import { getAllUsers } from "./users";
-import serviceMap from "../service-map.json";
+import serviceMap from "../service-map";
 
 type ServiceResource = LambdaResource | StepFunctionResource;
 
@@ -28,16 +28,21 @@ export const getResources = async (
 };
 
 export const getAllResources = async () => {
-  const lambdaResources = await getResources("lambda");
-  const stepFunctionsResources = await getResources("step-function");
-  const sqsResources = await getResources("sqs");
-  const dynamodbResources = await getResources("dynamodb");
-  return [
-    ...lambdaResources,
-    ...stepFunctionsResources,
-    ...sqsResources,
-    ...dynamodbResources,
-  ];
+  const resources = await fg([`${RESOURCES_DIR}/**`], {
+    onlyDirectories: true,
+  });
+
+  const services = resources.map((item) => {
+    const parts = item.split("/");
+    return parts[parts.length - 1];
+  });
+
+  const dataForServices = services.map(async (item) => {
+    return await getResources(item);
+  });
+
+  const data = await Promise.all(dataForServices);
+  return data.flat();
 };
 
 export const getAllResourcesForService = async (serviceId: string) => {
@@ -74,7 +79,8 @@ export const groupResourcesByAWSServiceName = (
   resources: Resource[],
 ): Promise<Record<string, Resource>> => {
   return resources.reduce((acc: any, resource) => {
-    const service = serviceMap[resource.AWS.Service];
+    const service =
+      serviceMap[resource.AWS.Service] || `Resources: ${resource.AWS.Service}`;
     acc[service] = acc[service] || [];
     acc[service].push(resource);
     return acc;
