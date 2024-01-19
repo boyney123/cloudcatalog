@@ -1,5 +1,11 @@
 # @cloudcatalog/cli
 
+## 0.1.0
+
+### Minor Changes
+
+- [#32](https://github.com/boyney123/cloudcatalog/pull/32) [`8b1068f`](https://github.com/boyney123/cloudcatalog/commit/8b1068fb86784a0c46e7a6358459cca29e2b9035) Thanks [@boyney123](https://github.com/boyney123)! - feat:adding support for any resource
+
 ## 0.0.9
 
 ### Patch Changes
