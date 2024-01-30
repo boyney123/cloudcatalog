@@ -35,7 +35,8 @@ export interface Resource {
     | LambdaAWSResource
     | StepFunctionAWSResource
     | SQSAWSResource
-    | DynamoDBAWSResource;
+    | DynamoDBAWSResource
+    | AppSyncAWSResource;
   owners?: string[];
 }
 
@@ -74,6 +75,16 @@ export interface SQSAWSResource {
   Account: string;
   Service: "sqs";
 }
+epxort interface AppSyncAWSResource {
+  Arn: string;
+  Name: string;
+  ApiId: string | undefined;
+  AuthenticationType: string | undefined;
+  ApiType: string | undefined;
+  Endpoint: string | undefined;
+  Account: string;
+  Service: "appsync";
+}
 export interface DynamoDBAWSResource {
   Arn: string;
   TableName?: string;
@@ -108,6 +119,9 @@ export interface StepFunctionResource extends Resource {
 }
 export interface SQSResource extends Resource {
   AWS: SQSAWSResource;
+}
+export interface AppSyncResource extends Resource {
+  AWS: AppSyncAWSResource;
 }
 
 export interface Service {

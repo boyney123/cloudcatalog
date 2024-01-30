@@ -28,3 +28,6 @@
 .s3 {
   --border-color: theme(colors.green.700);
 }
+.appsync {
+  --border-color: theme(colors.red.700);
+}

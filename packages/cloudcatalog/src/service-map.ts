@@ -168,6 +168,7 @@ const services = {
   firehose: "Amazon Kinesis Firehose",
   fsx: "Amazon FSx",
   gamelift: "Amazon GameLift",
+  appsync: "AWS AppSync"
 };
 
 export default services;

@@ -16,7 +16,7 @@ describe("cli-helpers", () => {
     });
   });
   describe("parseArn", () => {
-    it("returns the service, accounId, and resource of a given arn", () => {
+    it("returns the service, accountId, and resource of a given arn", () => {
       const arn = "arn:aws:lambda:us-west-2:1234567891234:function:my-function";
       const result = parseArn(arn);
       expect(result.accountId).toEqual("1234567891234");

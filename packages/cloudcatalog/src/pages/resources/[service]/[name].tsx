@@ -189,6 +189,20 @@ const buildOverviewForResource = (
           colSpan: 2,
         },
       ];
+    case "appsync":
+      return [
+        { name: "API Id", stat: resource.AWS.ApiId },
+        { name: "API Type", stat: resource.AWS.ApiType },
+        { name: "Endpoint",
+          stat: (
+            <SyntaxHighlighter className="text-xs" language={"bash"}>
+              {resource.AWS.Endpoint}
+            </SyntaxHighlighter>
+          )
+        },
+        { name: "Authentication Type", stat: resource.AWS?.AuthenticationType },
+        { name: "Creation Date", stat: resource.AWS.CreationDate },
+      ];
 
     default:
       return null;
