@@ -109,7 +109,8 @@ const getTagsForResourceType = (resource: Resource) => {
     ];
   }
 
-  if (resource.AWS.Service === "appsync") { // FIXME
+  if (resource.AWS.Service === "appsync") {
+    // FIXME
     return [
       {
         icon: PowerIcon,

@@ -13,14 +13,14 @@ jest.mock("@aws-sdk/client-appsync", () => {
 });
 
 const GetGraphqlApiCommandMockResponse = {
-    name: "appsync-api-name",
-    apiId: "api-id",
-    authenticationType: "OPENID_CONNECT",
-    apiType: "GRAPHQL",
-    arn: "arn:aws:appsync:eu-central-1:account-id:apis/api-id",
-    uris: {
-        "GRAPHQL": "https://api-id.appsync-api.eu-central-1.amazonaws.com/graphql"
-    }
+  name: "appsync-api-name",
+  apiId: "api-id",
+  authenticationType: "OPENID_CONNECT",
+  apiType: "GRAPHQL",
+  arn: "arn:aws:appsync:eu-central-1:account-id:apis/api-id",
+  uris: {
+    GRAPHQL: "https://api-id.appsync-api.eu-central-1.amazonaws.com/graphql",
+  },
 };
 
 describe("appsync resource", () => {
@@ -41,9 +41,10 @@ describe("appsync resource", () => {
           ApiId: "api-id",
           AuthenticationType: "OPENID_CONNECT",
           ApiType: "GRAPHQL",
-          Endpoint: "https://api-id.appsync-api.eu-central-1.amazonaws.com/graphql",
+          Endpoint:
+            "https://api-id.appsync-api.eu-central-1.amazonaws.com/graphql",
           Account: "account-id",
-          Service: "appsync"
+          Service: "appsync",
         },
         description: "AWS AppSync API",
         name: "appsync-api-name",
@@ -57,7 +58,8 @@ describe("appsync resource", () => {
       const result = await getMarkdown(data);
 
       // @ts-ignore
-      expect(result).toMatchMarkdown(`### Describe an AppSync API using the AWS-CLI
+      expect(result)
+        .toMatchMarkdown(`### Describe an AppSync API using the AWS-CLI
 
       <CLICommand>aws appsync get-graphql --api-id /ApiId/ </CLICommand>
       

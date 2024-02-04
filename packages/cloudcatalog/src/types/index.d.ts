@@ -75,7 +75,7 @@ export interface SQSAWSResource {
   Account: string;
   Service: "sqs";
 }
-epxort interface AppSyncAWSResource {
+export interface AppSyncAWSResource {
   Arn: string;
   Name: string;
   ApiId: string | undefined;

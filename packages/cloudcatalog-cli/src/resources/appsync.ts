@@ -2,8 +2,7 @@ import { GetGraphqlApiCommand, AppSyncClient } from "@aws-sdk/client-appsync";
 import { parse } from "@aws-sdk/util-arn-parser";
 import chalk from "chalk";
 const client = new AppSyncClient({});
-const getApiIdFromResource = (resource: string) =>
-  resource.split("/").pop();
+const getApiIdFromResource = (resource: string) => resource.split("/").pop();
 
 export interface Data {
   name?: string;
@@ -25,9 +24,7 @@ export const getData = async (arn: string): Promise<Data> => {
   const { resource, accountId } = parse(arn);
   const apiId = getApiIdFromResource(resource);
 
-  console.log(
-    chalk.cyan(`Fetching data for AppSync API: ${apiId}....`),
-  );
+  console.log(chalk.cyan(`Fetching data for AppSync API: ${apiId}....`));
 
   const response = await client.send(
     new GetGraphqlApiCommand({
