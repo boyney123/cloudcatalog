@@ -20,5 +20,9 @@ export const getConsoleURL = (arn: string) => {
       return `https://${region}.console.aws.amazon.com/sqs/v3/home?region=${region}#/queues/${encodeURIComponent(
         `https://sqs.${region}.amazonaws.com/${resource}`,
       )}`;
+    case "appsync":
+      return `https://${region}.console.aws.amazon.com/appsync/home?region=${region}#table?name=${
+        resource.split("apis/")[1]
+      }/v1/home`;
   }
 };

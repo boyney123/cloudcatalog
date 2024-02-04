@@ -109,6 +109,17 @@ const getTagsForResourceType = (resource: Resource) => {
     ];
   }
 
+  if (resource.AWS.Service === "appsync") {
+    // FIXME
+    return [
+      {
+        icon: PowerIcon,
+        value: `AuthenticationType ${resource.AWS.AuthenticationType}`,
+        class: "text-green-700",
+      },
+    ];
+  }
+
   return [];
 };
 
@@ -120,6 +131,8 @@ const getStylesForResource = (resource: Resource) => {
       return "border-pink-500 hover:bg-pink-100";
     case "sqs":
       return "border-pink-500 hover:bg-pink-100";
+    case "appsync":
+      return "border-red-500 hover:bg-red-100";
     default:
       return "border-gray-500";
   }
