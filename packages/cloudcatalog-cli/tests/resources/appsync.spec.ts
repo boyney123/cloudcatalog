@@ -58,8 +58,9 @@ describe("appsync resource", () => {
       const result = await getMarkdown(data);
 
       // @ts-ignore
-      expect(result)
-        .toMatchMarkdown(`### Describe an AppSync API using the AWS-CLI
+      expect(result).toMatchMarkdown(`
+      
+      ### Describe an AppSync API using the AWS-CLI
 
       <CLICommand>aws appsync get-graphql --api-id /ApiId/ </CLICommand>
       
