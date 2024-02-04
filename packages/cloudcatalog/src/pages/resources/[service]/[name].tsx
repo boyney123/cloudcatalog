@@ -49,6 +49,10 @@ const components = (resource: Resource) => {
         text = text.replace("/StateMachineName/", resource.AWS.Name);
       }
 
+      if (resource.AWS.Service === "appsync" && resource.AWS.ApiId) {
+        text = text.replace("/ApiId/", resource.AWS.ApiId);
+      }
+
       if (
         resource.AWS.Service === "sqs" &&
         resource.AWS.Name &&
