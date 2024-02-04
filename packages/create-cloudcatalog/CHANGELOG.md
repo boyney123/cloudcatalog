@@ -1,5 +1,11 @@
 # @cloudcatalog/create-catalog
 
+## 0.1.0
+
+### Minor Changes
+
+- [#36](https://github.com/boyney123/cloudcatalog/pull/36) [`d7bd743`](https://github.com/boyney123/cloudcatalog/commit/d7bd743f5bc7a381e67ce0d9fade54321e0a76ac) Thanks [@boyney123](https://github.com/boyney123)! - fix: Force build for new resource.
+
 ## 0.0.10
 
 ### Patch Changes
