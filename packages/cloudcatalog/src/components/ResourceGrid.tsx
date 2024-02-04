@@ -114,23 +114,7 @@ const getTagsForResourceType = (resource: Resource) => {
     return [
       {
         icon: PowerIcon,
-        value: resource.AWS.TableStatus,
-        class: "text-green-700",
-      },
-      {
-        icon: ArrowsRightLeftIcon,
-        value: `Stream ${
-          resource.AWS.StreamSpecification?.StreamEnabled
-            ? "Enabled"
-            : "Disabled"
-        }`,
-        class: "text-green-700",
-      },
-      {
-        icon: ArchiveBoxXMarkIcon,
-        value: `Deletion protection ${
-          resource.AWS.DeletionProtectionEnabled ? "enabled" : "disabled"
-        }`,
+        value: `AuthenticationType ${resource.AWS.AuthenticationType}`,
         class: "text-green-700",
       },
     ];

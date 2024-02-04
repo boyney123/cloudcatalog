@@ -200,9 +200,9 @@ const buildOverviewForResource = (
               {resource.AWS.Endpoint}
             </SyntaxHighlighter>
           ),
+          colSpan: 2,
         },
         { name: "Authentication Type", stat: resource.AWS?.AuthenticationType },
-        { name: "Creation Date", stat: resource.AWS.CreationDate },
       ];
 
     default:
