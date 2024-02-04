@@ -42,6 +42,17 @@
       "contributions": [
         "doc"
       ]
+    },
+    {
+      "login": "debae",
+      "name": "Baerten Dennis",
+      "avatar_url": "https://avatars.githubusercontent.com/u/2007116?v=4",
+      "profile": "http://www.ennovative-solutions.be",
+      "contributions": [
+        "code",
+        "doc",
+        "ideas"
+      ]
     }
   ],
   "contributorsPerLine": 7,
