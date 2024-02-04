@@ -7,7 +7,7 @@
 <!-- [![MIT License][license-badge]][license] -->
 <!-- [![PRs Welcome][prs-badge]][prs] -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 [![Watch on GitHub][github-watch-badge]][github-watch]
@@ -120,6 +120,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="https://boyney.io/"><img src="https://avatars.githubusercontent.com/u/3268013?v=4?s=100" width="100px;" alt="David Boyne"/><br /><sub><b>David Boyne</b></sub></a><br /><a href="https://github.com/boyney123/cloudcatalog/commits?author=boyney123" title="Documentation">📖</a> <a href="https://github.com/boyney123/cloudcatalog/commits?author=boyney123" title="Code">💻</a> <a href="#content-boyney123" title="Content">🖋</a> <a href="#data-boyney123" title="Data">🔣</a> <a href="#design-boyney123" title="Design">🎨</a> <a href="#ideas-boyney123" title="Ideas, Planning, & Feedback">🤔</a> <a href="#maintenance-boyney123" title="Maintenance">🚧</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://sean.lane.sh"><img src="https://avatars.githubusercontent.com/u/5761232?v=4?s=100" width="100px;" alt="Sean Lane"/><br /><sub><b>Sean Lane</b></sub></a><br /><a href="https://github.com/boyney123/cloudcatalog/issues?q=author%3Aseanlane" title="Bug reports">🐛</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://speedrun.cc"><img src="https://avatars.githubusercontent.com/u/97474956?v=4?s=100" width="100px;" alt="perpil"/><br /><sub><b>perpil</b></sub></a><br /><a href="https://github.com/boyney123/cloudcatalog/commits?author=perpil" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="http://www.ennovative-solutions.be"><img src="https://avatars.githubusercontent.com/u/2007116?v=4?s=100" width="100px;" alt="Baerten Dennis"/><br /><sub><b>Baerten Dennis</b></sub></a><br /><a href="https://github.com/boyney123/cloudcatalog/commits?author=debae" title="Code">💻</a> <a href="https://github.com/boyney123/cloudcatalog/commits?author=debae" title="Documentation">📖</a> <a href="#ideas-debae" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
   <tfoot>
